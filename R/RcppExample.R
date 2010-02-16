@@ -74,7 +74,7 @@ RcppExample <- function(params, nlist, numvec, nummat, df, datevec, stringvec,
     ## Finally ready to make the call...
     val <- .Call("Rcpp_Example", params, nlist, numvec, nummat,
                  df, datevec, stringvec, fnvec, fnlist,
-                 PACKAGE="Rcpp"
+                 PACKAGE="RcppExamples"
                  )
 
     ## Define a class for the return value so we can control what gets
@@ -116,7 +116,7 @@ RcppParamsExample <- function(params) {
     ## Make the call...
     val <- .Call("RcppParamsExample",
                  params,
-                 PACKAGE="Rcpp")
+                 PACKAGE="RcppExamples")
 
     ## Define a class for the return value so we can control what gets
     ## printed when a variable assigned this value is typed on a line by itself.
@@ -144,7 +144,7 @@ RcppDateExample <- function(dv, dtv) {
     ## Make the call...
     val <- .Call("RcppDateExample",
                  dv, dtv,
-                 PACKAGE="Rcpp")
+                 PACKAGE="RcppExamples")
 
     ## Define a class for the return value so we can control what gets
     ## printed when a variable assigned this value is typed on a line by itself.
