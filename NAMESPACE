@@ -1,0 +1,11 @@
+useDynLib(RcppExamples)
+
+export(RcppExample,
+       print.RcppExample,
+       RcppDateExample,
+       RcppParamsExample,
+       RcppVectorExample 
+)
+
+#importFrom( utils, capture.output )
+
