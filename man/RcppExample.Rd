@@ -38,10 +38,6 @@ fnvec, fnlist)
   what gets printed when a variable assigned the return value is entered
   on a line by itself. It is defined to simply list the names of the
   fields returned (see RcppExample.R).
-
-  The source files for this
-  example and for the \code{Rcpp} class library
-  can be found in the RcppTemplate package source archive (the .tar.gz file).
 }
 \value{
   \code{RcppExample} returns a list containing:
@@ -59,18 +55,13 @@ fnvec, fnlist)
   \item{InputDF}{a data frame passed in from R}
   \item{PreDF}{a data frame created on C++ side to be passed back to R}
   \item{params}{input parameter list (this is redundant because we returned the input parameters above)}
-  }
-
-\author{Dominick Samperi wrote most of Rcpp during 2005 and 2006.  Dirk
-  Eddelbuettel made some additions, and became maintainer in 2008.}
-
+}
+\author{Dominick Samperi wrote the initial versions of Rcpp (and
+  RcppTemplate) during 2005 and 2006.  Dirk Eddelbuettel made some
+  additions, and became maintainer in 2008. Dirk Eddelbuettel and Romain
+  Francois have been extending Rcpp since 2009.
+}
 \references{
-  Samperi, D., (2006) \emph{Rcpp: R/C++ Interface Classes:
-      Using C++ Libraries from R},
-    available as a package vignette, or in the \code{RcppTemplate}
-    package \code{doc} subdirectory
-  (\code{RcppAPI.pdf}).
-    
   \emph{Writing R Extensions}, available at \url{http:www.r-project.org}.
 }
 \examples{

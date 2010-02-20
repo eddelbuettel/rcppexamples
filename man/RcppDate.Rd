@@ -32,7 +32,8 @@
 %}
 \details{
   Usage of the \code{RcppDate}, \code{RcppDatetime} (and their vector
-  extensions) in \code{C++} is fully defined in \code{Rcpp.h}. 
+  extensions) in \code{C++} is fully defined in the respective header
+  files \code{RcppDate.h} and \code{RcppDatetime.h}. 
 
   As example, consider a call from \R to \code{C++} such as
 
@@ -40,13 +41,13 @@
   # an R example passing one type of each class to a function
   # someFunction in package somePackage
   val <- .Call("someFunction",
-               Sys.Date(),        # current date
-	       Sys.time(), 	  # current timestamp
-	       as.Date("2000-02-25")
-	          + 0:5,         # date vector
-	       ISOdatetime(1999,12,31,23,59,0)
-	          + (0:5)*0.250, # datetime vector
-   	       PACKAGE="somePackage")
+               Sys.Date(),      # current date
+	           Sys.time(), 	    # current timestamp
+	           as.Date("2000-02-25")
+	             + 0:5,         # date vector
+	           ISOdatetime(1999,12,31,23,59,0)
+	             + (0:5)*0.250, # datetime vector
+   	           PACKAGE="somePackage")
   }
 
   At the \code{C++} level, the corresponding code to assign these parameter to
@@ -62,19 +63,23 @@
   }
   }
 
-  Standard accessor functions are defined, see \code{Rcpp.h} for details.
+  Standard accessor functions are defined, see \code{RcppDate.h} and
+  \code{RcppDatetime.h} for details.
 
   Objects of these types can also be returned via \code{RcppResultSet}. 
 
 }
-%\references{
-%  See \code{Rcpp.h} and the package vignette.
-%}
-\seealso{
-  \code{RcppResultSet}, the vignette \dQuote{RcppAPI}.
+\references{
+  \emph{Writing R Extensions}, available at \url{http:www.r-project.org}.
 }
-\author{Dominick Samperi wrote most of Rcpp during 2005 and 2006.  Dirk
-  Eddelbuettel made some additions, and became maintainer in 2008.}
+\seealso{
+  \code{RcppResultSet}.
+}
+\author{Dominick Samperi wrote the initial versions of Rcpp (and
+  RcppTemplate) during 2005 and 2006.  Dirk Eddelbuettel made some
+  additions, and became maintainer in 2008. Dirk Eddelbuettel and Romain
+  Francois have been extending Rcpp since 2009.
+}
 \examples{
 
 # set up date and datetime vectors

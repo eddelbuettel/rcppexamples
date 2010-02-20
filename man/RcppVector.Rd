@@ -1,6 +1,8 @@
 \name{RcppVector}
 \alias{RcppVector}
 \alias{RcppMatrix}
+\alias{RcppVectorView}
+\alias{RcppMatrixView}
 \alias{RcppStringVector}
 \alias{RcppVectorExample}
 \title{C++ classes for receiving R object in C++}
@@ -12,6 +14,9 @@
   
   The vector and matrix types are templated and can operate on \R types
   \code{intger} and \code{numeric}. 
+
+  The \code{RcppVectorView} and \code{RcppMatrixView} are slighly more
+  lightweight read-only variants.
   
   Member functions are provided to query the dimension of the vector or
   matrix object, convert it in a corresponding \code{C} representation,
@@ -28,7 +33,7 @@
 \details{
   Usage of \code{RcppVector}, \code{RcppMatrix} and
   \code{RcppStringVector} in \code{C++} is fully defined in
-  \code{Rcpp.h}. 
+  the respective header files. 
 
   As example, consider a call from \R to \code{C++} such as
 
@@ -76,10 +81,13 @@
 %  See \code{Rcpp.h} and the package vignette.
 %}
 \seealso{
-  \code{RcppExample}, the vignette \dQuote{RcppAPI}.
+  \code{RcppExample}.
 }
-\author{Dominick Samperi wrote most of Rcpp during 2005 and 2006.  Dirk
-  Eddelbuettel made some additions, and became maintainer in 2008.}
+\author{Dominick Samperi wrote the initial versions of Rcpp (and
+  RcppTemplate) during 2005 and 2006.  Dirk Eddelbuettel made some
+  additions, and became maintainer in 2008. Dirk Eddelbuettel and Romain
+  Francois have been extending Rcpp since 2009.
+}
 \examples{
 # set up some value
 vector <- (seq(1,9))^2

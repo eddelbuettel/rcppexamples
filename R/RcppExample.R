@@ -167,7 +167,7 @@ RcppVectorExample <- function(v) {
     ## Make the call...
     val <- .Call("RcppVectorExample",
                  v,
-                 PACKAGE="Rcpp")
+                 PACKAGE="RcppExamples")
 
     ## Define a class for the return value so we can control what gets
     ## printed when a variable assigned this value is typed on a line by itself.

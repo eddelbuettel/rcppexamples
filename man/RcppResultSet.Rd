@@ -33,7 +33,7 @@
 %}
 \details{
   Usage of \code{RcppResultSet} from  \code{C++} is fully defined in
-  \code{Rcpp.h}. An example for returning data to \R at the end of a
+  \code{RcppResultSet.h}. An example for returning data to \R at the end of a
   \code{.Call()} call follows.
   
   At the C++ level, the corresponding code to assign these parameter to
@@ -80,10 +80,13 @@
 %  See \code{Rcpp.h} and the package vignette.
 %}
 \seealso{
-  \code{RcppExample}, the vignette \dQuote{RcppAPI}.
+  \code{RcppExample}.
 }
-\author{Dominick Samperi wrote most of Rcpp during 2005 and 2006.  Dirk
-  Eddelbuettel made some additions, and became maintainer in 2008.}
+\author{Dominick Samperi wrote the initial versions of Rcpp (and
+  RcppTemplate) during 2005 and 2006.  Dirk Eddelbuettel made some
+  additions, and became maintainer in 2008. Dirk Eddelbuettel and Romain
+  Francois have been extending Rcpp since 2009.
+}
 \examples{
 
 # example from RcppDate
