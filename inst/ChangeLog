@@ -1,3 +1,10 @@
+2010-02-27  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/RcppDateExample.cpp: Carved out of RcppExample.cpp
+	* src/RcppParamsExample.cpp: idem
+	* src/RcppVectorExample.cpp: idem
+	* src/RcppExample.cpp: fixed indentation
+
 2010-02-16  Dirk Eddelbuettel  <edd@debian.org>
 
 	* New package, started from Rcpp 0.7.7
