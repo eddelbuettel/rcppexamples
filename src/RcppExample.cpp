@@ -42,30 +42,30 @@ public:
     // sum of the elements of v!
     double getSum(std::vector<double>& v) {
 
-	// Turn vector into a SEXP that can be passed to R as an argument.
-	setRVector(v);
+		// Turn vector into a SEXP that can be passed to R as an argument.
+		setRVector(v);
 
-	// Call the R function that was passed in as the paramter fn, with
-	// the SEXP vector that was just set as its argument.
-	SEXP result = vectorCall();
+		// Call the R function that was passed in as the paramter fn, with
+		// the SEXP vector that was just set as its argument.
+		SEXP result = vectorCall();
 
-	// Assuming that the R function simply returns a real number we
-	// pass it back to the C++ user as follows. If the R function returns
-	// something more complicated transform result into a C++ object to
-	// be returned, and  clear the part of the protection stack due to
-	// this object before returning (to prevent protection stack overflow).
-	// Note that it is unsafe to do this if the returned result depends
-	// on PROTECT-ed SEXP's. For example, result should not be 
-	// wrapped in a class like RcppParams where objects hold onto the
-	// the PROTECT-ed SEXP that was used to construct them.
+		// Assuming that the R function simply returns a real number we
+		// pass it back to the C++ user as follows. If the R function returns
+		// something more complicated transform result into a C++ object to
+		// be returned, and  clear the part of the protection stack due to
+		// this object before returning (to prevent protection stack overflow).
+		// Note that it is unsafe to do this if the returned result depends
+		// on PROTECT-ed SEXP's. For example, result should not be 
+		// wrapped in a class like RcppParams where objects hold onto the
+		// the PROTECT-ed SEXP that was used to construct them.
 
-	double value = REAL(result)[0];
+		double value = REAL(result)[0];
 
-	// Safe now to clear the contribution of this function to the
-	// protection stack.
-	clearProtectionStack();
+		// Safe now to clear the contribution of this function to the
+		// protection stack.
+		clearProtectionStack();
 
-	return value;
+		return value;
     }
 };
 
@@ -81,26 +81,26 @@ public:
     MyRListFunc(SEXP fn) : RcppFunction(fn) {}
     std::vector<double> addOne(double alpha, double beta, double gamma) {
 
-	// Build argument list.
-	setRListSize(3);
-	appendToRList("alpha", alpha);
-	appendToRList("beta",  beta);
-	appendToRList("gamma", gamma);
+		// Build argument list.
+		setRListSize(3);
+		appendToRList("alpha", alpha);
+		appendToRList("beta",  beta);
+		appendToRList("gamma", gamma);
 
-	// Call the R function passed in as fn with the list argument just
-	// constructed.
-	SEXP result = listCall();
+		// Call the R function passed in as fn with the list argument just
+		// constructed.
+		SEXP result = listCall();
+	
+		// Turn returned R vector into a C++ vector, clear protection stack,
+		// and return.
+		std::vector<double> vec(Rf_length(result));
+		for(int i=0; i < Rf_length(result); i++)
+			vec[i] = REAL(result)[i];
 
-	// Turn returned R vector into a C++ vector, clear protection stack,
-	// and return.
-	std::vector<double> vec(Rf_length(result));
-	for(int i=0; i < Rf_length(result); i++)
-	    vec[i] = REAL(result)[i];
+		// See comments in previous class definition on the purpose of this.
+		clearProtectionStack();
 
-	// See comments in previous class definition on the purpose of this.
-	clearProtectionStack();
-
-	return vec;
+		return vec;
     }
 };
 
@@ -108,224 +108,224 @@ public:
  * Sample function illustrates how to use the Rcpp R/C++ interface library.
  */
 RcppExport SEXP Rcpp_Example(SEXP params, SEXP nlist, 
-			     SEXP numvec, SEXP nummat,
-			     SEXP df, SEXP datevec, SEXP stringvec,
-			     SEXP fnvec, SEXP fnlist) {
+							 SEXP numvec, SEXP nummat,
+							 SEXP df, SEXP datevec, SEXP stringvec,
+							 SEXP fnvec, SEXP fnlist) {
 
     SEXP rl=R_NilValue; // Use this when there is nothing to be returned.
     char *exceptionMesg=NULL;
 
     try {
 
-	int i=0, j=0;
+		int i=0, j=0;
 
-	// Get parameters in params.
-	RcppParams rparam(params);
-	std::string method = rparam.getStringValue("method");
-	double tolerance = rparam.getDoubleValue("tolerance");
-	int    maxIter = rparam.getIntValue("maxIter");
-	RcppDate startDate = rparam.getDateValue("startDate");
+		// Get parameters in params.
+		RcppParams rparam(params);
+		std::string method = rparam.getStringValue("method");
+		double tolerance = rparam.getDoubleValue("tolerance");
+		int    maxIter = rparam.getIntValue("maxIter");
+		RcppDate startDate = rparam.getDateValue("startDate");
 
-	// The output of commands like this may not appear under Windows.
-	Rprintf("Parsing start date argument: %d/%d/%d\n", 
-		startDate.getMonth(),
-		startDate.getDay(),
-		startDate.getYear());
+		// The output of commands like this may not appear under Windows.
+		Rprintf("Parsing start date argument: %d/%d/%d\n", 
+				startDate.getMonth(),
+				startDate.getDay(),
+				startDate.getYear());
 
-	// QuantLib note: an RcppDate is automatically converted to QuantLib
-	// Date when the context calls for this, provided 
-	// USING_QUANTLIB is set.
+		// QuantLib note: an RcppDate is automatically converted to QuantLib
+		// Date when the context calls for this, provided 
+		// USING_QUANTLIB is set.
 
-	RcppDateVector dateVec(datevec);
-	//dateVec(0) = RcppDate(12, 15, 1989); // update one element.
+		RcppDateVector dateVec(datevec);
+		//dateVec(0) = RcppDate(12, 15, 1989); // update one element.
 
-	RcppStringVector stringVec(stringvec);
-	//stringVec(1) = string("New York"); // update one element.
+		RcppStringVector stringVec(stringvec);
+		//stringVec(1) = string("New York"); // update one element.
 
-	// and nl.getValue(i) to fetch data.
-	RcppNumList nl(nlist);
+		// and nl.getValue(i) to fetch data.
+		RcppNumList nl(nlist);
 
-	// numvec parameter viewed as vector of ints (with truncation).
-	//RcppVector<int> vecI(numvec);
+		// numvec parameter viewed as vector of ints (with truncation).
+		//RcppVector<int> vecI(numvec);
 
-	// mat parameter viewed as matrix of ints (with truncation).
-	//RcppMatrix<int> matI(nummat);
+		// mat parameter viewed as matrix of ints (with truncation).
+		//RcppMatrix<int> matI(nummat);
 
-	// vec parameter viewed as vector of doubles.
-	RcppVector<double> vecD(numvec);
+		// vec parameter viewed as vector of doubles.
+		RcppVector<double> vecD(numvec);
 
-	// mat parameter viewed as matrix of doubles.
-	RcppMatrix<double> matD(nummat);
+		// mat parameter viewed as matrix of doubles.
+		RcppMatrix<double> matD(nummat);
 
-	// Do some computations with the matrices.
-	int nrows = matD.getDim1();
-	int ncols = matD.getDim2();
-	for(i = 0; i < nrows; i++)
-	    for(j = 0; j < ncols; j++)
-		matD(i,j) = 2 * matD(i,j);
+		// Do some computations with the matrices.
+		int nrows = matD.getDim1();
+		int ncols = matD.getDim2();
+		for(i = 0; i < nrows; i++)
+			for(j = 0; j < ncols; j++)
+				matD(i,j) = 2 * matD(i,j);
 
-	int len = vecD.size();
-	for(i = 0; i < len; i++)
-	    vecD(i) = 3 * vecD(i);
+		int len = vecD.size();
+		for(i = 0; i < len; i++)
+			vecD(i) = 3 * vecD(i);
 
-	// Get copy of matrix/vector in standard (unchecked) C/C++ format.
-	// May be useful when these vectors need to be passed to
-	// C/C++ code that does not know about Rcpp classes...
-	double **a = matD.cMatrix();
-	double  *v = vecD.cVector();
+		// Get copy of matrix/vector in standard (unchecked) C/C++ format.
+		// May be useful when these vectors need to be passed to
+		// C/C++ code that does not know about Rcpp classes...
+		double **a = matD.cMatrix();
+		double  *v = vecD.cVector();
 
-	// ...or we might want to use an STL container...
-	std::vector<double> stlvec(vecD.stlVector());
-	nrows = (int)stlvec.size();
-	for(i = 0; i < nrows; i++)
-	    stlvec[i] += 1;
+		// ...or we might want to use an STL container...
+		std::vector<double> stlvec(vecD.stlVector());
+		nrows = (int)stlvec.size();
+		for(i = 0; i < nrows; i++)
+			stlvec[i] += 1;
 
-	// ...or perhaps a container of containers.
-	std::vector<std::vector<double> > stlmat(matD.stlMatrix());
-	nrows = (int)stlmat.size();
-	ncols = (int)stlmat[0].size();
-	for(i = 0; i < nrows; i++)
-	    for(j = 0; j < ncols; j++)
-		stlmat[i][j] += 2;
+		// ...or perhaps a container of containers.
+		std::vector<std::vector<double> > stlmat(matD.stlMatrix());
+		nrows = (int)stlmat.size();
+		ncols = (int)stlmat[0].size();
+		for(i = 0; i < nrows; i++)
+			for(j = 0; j < ncols; j++)
+				stlmat[i][j] += 2;
 
-	// Get a zero matrix the same size as matD.
-	//RcppMatrix<double> matZ(nrows, ncols);
+		// Get a zero matrix the same size as matD.
+		//RcppMatrix<double> matZ(nrows, ncols);
 
-	// Make a vector of strings
-	std::vector<std::string> svec(2);
+		// Make a vector of strings
+		std::vector<std::string> svec(2);
         svec[0] = "hello";
-	svec[1] = "world";
+		svec[1] = "world";
 
-	// Process the input data frame and show factors and dates.
-	RcppFrame inframe(df);
-
-	/*
-	Rprintf("\nFactors and Dates in frame...");
-	vector<vector<ColDatum> > table = inframe.getTableData();
-	int nrow = table.size();
-	int ncol = table[0].size();
-	for(int row=0; row < nrow; row++) {
-	    for(int col=0; col < ncol; col++) {
-		RcppDate d;
-		string name;
-		int level;
-		switch(table[row][col].getType()) {
-		case COLTYPE_FACTOR:
-		    level = table[row][col].getFactorLevel();
-		    name  = table[row][col].getFactorLevelName();
-		    Rprintf("Level, name: %d, %s\n",
-		            level, name.c_str());
-		    break;
-		case COLTYPE_DATE:
-		    d = table[row][col].getDateValue();
-		    Rprintf("Start Date: %d/%d/%d\n", 
-		            d.getMonth(),
+		// Process the input data frame and show factors and dates.
+		RcppFrame inframe(df);
+		
+		/*
+		  Rprintf("\nFactors and Dates in frame...");
+		  vector<vector<ColDatum> > table = inframe.getTableData();
+		  int nrow = table.size();
+		  int ncol = table[0].size();
+		  for(int row=0; row < nrow; row++) {
+		    for(int col=0; col < ncol; col++) {
+		      RcppDate d;
+			  string name;
+			  int level;
+			  switch(table[row][col].getType()) {
+			  case COLTYPE_FACTOR:
+			    level = table[row][col].getFactorLevel();
+			    name  = table[row][col].getFactorLevelName();
+				Rprintf("Level, name: %d, %s\n",
+				level, name.c_str());
+				break;
+			  case COLTYPE_DATE:
+			    d = table[row][col].getDateValue();
+				Rprintf("Start Date: %d/%d/%d\n", 
+				d.getMonth(),
 			    d.getDay(),
 			    d.getYear());
-		    break;
-		default:
-		    ; // Ignore other types.
-		}
-	    }
-	}
-	*/
+				break;
+			  default:
+			  ; // Ignore other types.
+			  }
+	        }
+	      }
+		*/
 
-	// Make a pre-data frame, that is, a list object that when passed
-	// the the R function data.frame() will return a data frame with
-	// the specified column names and data types. The first row added
-	// determines the types for all columns.
-	int numCol=4;
-	std::vector<std::string> colNames(numCol);
-	colNames[0] = "alpha"; // column of strings
-	colNames[1] = "beta";  // column of reals
-	colNames[2] = "gamma"; // factor column
-	colNames[3] = "delta"; // column of Dates
-	RcppFrame frame(colNames);
+		// Make a pre-data frame, that is, a list object that when passed
+		// the the R function data.frame() will return a data frame with
+		// the specified column names and data types. The first row added
+		// determines the types for all columns.
+		int numCol=4;
+		std::vector<std::string> colNames(numCol);
+		colNames[0] = "alpha"; // column of strings
+		colNames[1] = "beta";  // column of reals
+		colNames[2] = "gamma"; // factor column
+		colNames[3] = "delta"; // column of Dates
+		RcppFrame frame(colNames);
 
-	// Third column will be a factor. In the current implementation the
-	// level names are copied to every factor value (and factors
-	// in the same column must have the same level names). The level names
-	// for a particular column will be factored out (pardon the pun) in
-	// a future release.
-	int numLevels = 2;
-	std::string *levelNames = new std::string[2];
-	levelNames[0] = std::string("pass"); // level 1
-	levelNames[1] = std::string("fail"); // level 2
+		// Third column will be a factor. In the current implementation the
+		// level names are copied to every factor value (and factors
+		// in the same column must have the same level names). The level names
+		// for a particular column will be factored out (pardon the pun) in
+		// a future release.
+		int numLevels = 2;
+		std::string *levelNames = new std::string[2];
+		levelNames[0] = std::string("pass"); // level 1
+		levelNames[1] = std::string("fail"); // level 2
 
-	// First row (this one determines column types).
-	std::vector<ColDatum> row1(numCol);
-	row1[0].setStringValue("a");
-	row1[1].setDoubleValue(3.14);
-	row1[2].setFactorValue(levelNames, numLevels, 1);
-	row1[3].setDateValue(RcppDate(7,4,2006));
-	frame.addRow(row1);
+		// First row (this one determines column types).
+		std::vector<ColDatum> row1(numCol);
+		row1[0].setStringValue("a");
+		row1[1].setDoubleValue(3.14);
+		row1[2].setFactorValue(levelNames, numLevels, 1);
+		row1[3].setDateValue(RcppDate(7,4,2006));
+		frame.addRow(row1);
 
-	// Second row.
-	std::vector<ColDatum> row2(numCol);
-	row2[0].setStringValue("b");
-	row2[1].setDoubleValue(6.28);
-	row2[2].setFactorValue(levelNames, numLevels, 1);
-	row2[3].setDateValue(RcppDate(12,25,2006));
-	frame.addRow(row2);
+		// Second row.
+		std::vector<ColDatum> row2(numCol);
+		row2[0].setStringValue("b");
+		row2[1].setDoubleValue(6.28);
+		row2[2].setFactorValue(levelNames, numLevels, 1);
+		row2[3].setDateValue(RcppDate(12,25,2006));
+		frame.addRow(row2);
 
-	// Done with levelNames.
-	delete [] levelNames;
+		// Done with levelNames.
+		delete [] levelNames;
 
-	// Test MyRVectorFunction defined above...
-	MyRVectorFunc vfunc(fnvec);
-	int n = 10;
-	std::vector<double> vecInput(n);
-	for(int i=0; i < n; i++)
-	    vecInput[i] = i;
-	double vecSum = vfunc.getSum(vecInput);
-	Rprintf("Testing vector function argument: vecSum = %lf\n", vecSum);
+		// Test MyRVectorFunction defined above...
+		MyRVectorFunc vfunc(fnvec);
+		int n = 10;
+		std::vector<double> vecInput(n);
+		for(int i=0; i < n; i++)
+			vecInput[i] = i;
+		double vecSum = vfunc.getSum(vecInput);
+		Rprintf("Testing vector function argument: vecSum = %lf\n", vecSum);
 	
-	// Test MyRListFunction defined above...
-	MyRListFunc lfunc(fnlist);
-	double alpha=1, beta=2, gamma=3;
-	std::vector<double> vecOut = lfunc.addOne(alpha, beta, gamma);
-	Rprintf("Testing list function argument: %lf, %lf, %lf\n", vecOut[0], vecOut[1], vecOut[2]);
+		// Test MyRListFunction defined above...
+		MyRListFunc lfunc(fnlist);
+		double alpha=1, beta=2, gamma=3;
+		std::vector<double> vecOut = lfunc.addOne(alpha, beta, gamma);
+		Rprintf("Testing list function argument: %lf, %lf, %lf\n", vecOut[0], vecOut[1], vecOut[2]);
 
-	RcppDate aDate(12, 25, 1999);
+		RcppDate aDate(12, 25, 1999);
 
-	// Build result set to be returned as a list to R.
-	RcppResultSet rs;
+		// Build result set to be returned as a list to R.
+		RcppResultSet rs;
 
-	rs.add("date", aDate);
-	rs.add("dateVec", dateVec);
-	rs.add("method", method);
-	rs.add("tolerance", tolerance);
-	rs.add("maxIter", maxIter);
-	rs.add("nlFirstName", nl.getName(0));
-	rs.add("nlFirstValue", nl.getValue(0));
-	rs.add("matD", matD);
-	rs.add("stlvec", stlvec);
-	rs.add("stlmat", stlmat);
-	rs.add("a", a, nrows, ncols);
-	rs.add("v", v, len);
-	rs.add("stringVec", stringVec);
-	rs.add("strings", svec);
-	rs.add("InputDF", inframe);
-	rs.add("PreDF", frame);
-
-
-	// Instead of returning selected input parameters as we did in
-	// the last three statements, the entire input parameter list
-	// can be returned like this:
-	rs.add("params", params, false);
+		rs.add("date", aDate);
+		rs.add("dateVec", dateVec);
+		rs.add("method", method);
+		rs.add("tolerance", tolerance);
+		rs.add("maxIter", maxIter);
+		rs.add("nlFirstName", nl.getName(0));
+		rs.add("nlFirstValue", nl.getValue(0));
+		rs.add("matD", matD);
+		rs.add("stlvec", stlvec);
+		rs.add("stlmat", stlmat);
+		rs.add("a", a, nrows, ncols);
+		rs.add("v", v, len);
+		rs.add("stringVec", stringVec);
+		rs.add("strings", svec);
+		rs.add("InputDF", inframe);
+		rs.add("PreDF", frame);
 
 
-	// Get the list to be returned to R.
-	rl = rs.getReturnList();
-	
+		// Instead of returning selected input parameters as we did in
+		// the last three statements, the entire input parameter list
+		// can be returned like this:
+		rs.add("params", params, false);
+
+
+		// Get the list to be returned to R.
+		rl = rs.getReturnList();
+		
     } catch(std::exception& ex) {
-	exceptionMesg = copyMessageToR(ex.what());
+		exceptionMesg = copyMessageToR(ex.what());
     } catch(...) {
-	exceptionMesg = copyMessageToR("unknown reason");
+		exceptionMesg = copyMessageToR("unknown reason");
     }
     
     if(exceptionMesg != NULL)
-	Rf_error(exceptionMesg);
+		Rf_error(exceptionMesg);
 
     return rl;
 }
@@ -338,44 +338,44 @@ RcppExport SEXP RcppParamsExample(SEXP params) {
 
     try {
 
-	// Get parameters in params.
-	RcppParams rparam(params);
-	std::string method      = rparam.getStringValue("method");
-	double tolerance   = rparam.getDoubleValue("tolerance");
-	int    maxIter     = rparam.getIntValue("maxIter");
-	RcppDate startDate = rparam.getDateValue("startDate");
+		// Get parameters in params.
+		RcppParams rparam(params);
+		std::string method      = rparam.getStringValue("method");
+		double tolerance   = rparam.getDoubleValue("tolerance");
+		int    maxIter     = rparam.getIntValue("maxIter");
+		RcppDate startDate = rparam.getDateValue("startDate");
 	
-	Rprintf("\nIn C++, seeing the following value\n");
-	Rprintf("Method argument    : %s\n", method.c_str());
-	Rprintf("Tolerance argument : %f\n", tolerance);
-	Rprintf("MaxIter argument   : %d\n", maxIter);
-	Rprintf("Start date argument: %04d-%02d-%02d\n", 
-		startDate.getYear(), startDate.getMonth(), startDate.getDay());
+		Rprintf("\nIn C++, seeing the following value\n");
+		Rprintf("Method argument    : %s\n", method.c_str());
+		Rprintf("Tolerance argument : %f\n", tolerance);
+		Rprintf("MaxIter argument   : %d\n", maxIter);
+		Rprintf("Start date argument: %04d-%02d-%02d\n", 
+				startDate.getYear(), startDate.getMonth(), startDate.getDay());
 
-	// Build result set to be returned as a list to R.
-	RcppResultSet rs;
+		// Build result set to be returned as a list to R.
+		RcppResultSet rs;
 
-	rs.add("method",    method);
-	rs.add("tolerance", tolerance);
-	rs.add("maxIter",   maxIter);
-	rs.add("startDate", startDate);
+		rs.add("method",    method);
+		rs.add("tolerance", tolerance);
+		rs.add("maxIter",   maxIter);
+		rs.add("startDate", startDate);
 
-	// Instead of returning selected input parameters as we did in
-	// the last statements, the entire input parameter list can be
-	// returned like this:
-	rs.add("params", params, false);  // 'false' to not PROTECT params
+		// Instead of returning selected input parameters as we did in
+		// the last statements, the entire input parameter list can be
+		// returned like this:
+		rs.add("params", params, false);  // 'false' to not PROTECT params
 
-	// Get the list to be returned to R.
-	rl = rs.getReturnList();
+		// Get the list to be returned to R.
+		rl = rs.getReturnList();
 	
     } catch(std::exception& ex) {
-	exceptionMesg = copyMessageToR(ex.what());
+		exceptionMesg = copyMessageToR(ex.what());
     } catch(...) {
-	exceptionMesg = copyMessageToR("unknown reason");
+		exceptionMesg = copyMessageToR("unknown reason");
     }
     
     if(exceptionMesg != NULL)
-	Rf_error(exceptionMesg);
+		Rf_error(exceptionMesg);
 
     return rl;
 }
@@ -387,37 +387,37 @@ RcppExport SEXP RcppDateExample(SEXP dvsexp, SEXP dtvsexp) {
 
     try {
 
-	RcppDateVector dv(dvsexp);
-	RcppDatetimeVector dtv(dtvsexp);
+		RcppDateVector dv(dvsexp);
+		RcppDatetimeVector dtv(dtvsexp);
 	
-	Rprintf("\nIn C++, seeing the following date value\n");
-	for (int i=0; i<dv.size(); i++) {
-	    std::cout << dv(i) << std::endl;
-	    dv(i) = dv(i) + 7;		// shift a week
-	}
-	Rprintf("\nIn C++, seeing the following datetime value\n");
-	for (int i=0; i<dtv.size(); i++) {
-	    std::cout << dtv(i) << std::endl;
-	    dtv(i) = dtv(i) + 0.250;    // shift 250 millisec
-	}
+		Rprintf("\nIn C++, seeing the following date value\n");
+		for (int i=0; i<dv.size(); i++) {
+			std::cout << dv(i) << std::endl;
+			dv(i) = dv(i) + 7;		// shift a week
+		}
+		Rprintf("\nIn C++, seeing the following datetime value\n");
+		for (int i=0; i<dtv.size(); i++) {
+			std::cout << dtv(i) << std::endl;
+			dtv(i) = dtv(i) + 0.250;    // shift 250 millisec
+		}
 
-	// Build result set to be returned as a list to R.
-	RcppResultSet rs;
-	rs.add("date",   dv);
-	rs.add("datetime", dtv);
+		// Build result set to be returned as a list to R.
+		RcppResultSet rs;
+		rs.add("date",   dv);
+		rs.add("datetime", dtv);
 
-	// Get the list to be returned to R.
-	rl = rs.getReturnList();
+		// Get the list to be returned to R.
+		rl = rs.getReturnList();
 	
     } catch(std::exception& ex) {
-	exceptionMesg = copyMessageToR(ex.what());
+		exceptionMesg = copyMessageToR(ex.what());
     } catch(...) {
-	exceptionMesg = copyMessageToR("unknown reason");
+		exceptionMesg = copyMessageToR("unknown reason");
     }
     
     if(exceptionMesg != NULL)
-	Rf_error(exceptionMesg);
-
+		Rf_error(exceptionMesg);
+	
     return rl;
 }
 
@@ -428,36 +428,36 @@ RcppExport SEXP RcppVectorExample(SEXP vector) {
 
     try {
 
-	// Get parameters in params.
-	RcppVector<int> vec(vector);
-	int n = vec.size();
+		// Get parameters in params.
+		RcppVector<int> vec(vector);
+		int n = vec.size();
 
-	Rprintf("\nIn C++, seeing a vector of length %d\n", n);
+		Rprintf("\nIn C++, seeing a vector of length %d\n", n);
 
-	// create a C++ STL vector, and reserve appropriate size
-	std::vector<double> res(n);
+		// create a C++ STL vector, and reserve appropriate size
+		std::vector<double> res(n);
 	
-	for (int i=0; i<n; i++) {
-	    res[i] = sqrt(static_cast<double>(vec(i)));
-	}
+		for (int i=0; i<n; i++) {
+			res[i] = sqrt(static_cast<double>(vec(i)));
+		}
 
-	// Build result set to be returned as a list to R.
-	RcppResultSet rs;
+		// Build result set to be returned as a list to R.
+		RcppResultSet rs;
 
-	rs.add("result",  res);
-	rs.add("original", vec);
+		rs.add("result",  res);
+		rs.add("original", vec);
 
-	// Get the list to be returned to R.
-	rl = rs.getReturnList();
+		// Get the list to be returned to R.
+		rl = rs.getReturnList();
 	
     } catch(std::exception& ex) {
-	exceptionMesg = copyMessageToR(ex.what());
+		exceptionMesg = copyMessageToR(ex.what());
     } catch(...) {
-	exceptionMesg = copyMessageToR("unknown reason");
+		exceptionMesg = copyMessageToR("unknown reason");
     }
     
     if(exceptionMesg != NULL)
-	Rf_error(exceptionMesg);
+		Rf_error(exceptionMesg);
 
     return rl;
 }
