@@ -4,7 +4,7 @@ Version: 0.1.0
 Date: $Date$
 Author: Dirk Eddelbuettel and Romain Francois, based on code written 
  during 2005 and 2006 by Dominick Samperi 
-Maintainer: Dirk and Romain <RomainAndDirk@r-enthusiasts.com>
+Maintainer: Dirk Eddelbuettel and Romain Francois <RomainAndDirk@r-enthusiasts.com>
 Description: Examples for Seamless R and C++ integration
  The Rcpp package contains a C++ library that facilitates the integration of
  R and C++ in various ways. This package provides examples.
