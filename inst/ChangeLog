@@ -1,3 +1,13 @@
+2010-03-04  Dirk Eddelbuettel  <edd@dexter>
+
+	* src/RcppMatrixExample.cpp: Added 'classic' + 'new' API examples
+	* R/RcppVectorExample.R: idem
+
+2010-03-03  Dirk Eddelbuettel  <edd@dexter>
+
+	* src/RcppVectorExample.cpp: Added 'new' API example
+	* R/RcppVectorExample.R: Added argument 'api'
+
 2010-02-27  Dirk Eddelbuettel  <edd@debian.org>
 
 	* src/RcppDateExample.cpp: Carved out of RcppExample.cpp

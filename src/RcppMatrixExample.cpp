@@ -1,6 +1,6 @@
 // -*- mode: C++; c-indent-level: 4; c-basic-offset: 4; tab-width: 8 -*-
 //
-// RcppVectorExample.cpp: Rcpp R/C++ interface class library RcppVector example
+// RcppMatrixExample.cpp: Rcpp R/C++ interface class library RcppMatrix example
 //
 // Copyright (C) 2005 - 2006 Dominick Samperi
 // Copyright (C) 2008        Dirk Eddelbuettel
@@ -23,24 +23,24 @@
 
 #include <Rcpp.h>
 
-RcppExport SEXP newRcppVectorExample(SEXP vector) {
+RcppExport SEXP newRcppMatrixExample(SEXP matrix) {
 
-    Rcpp::NumericVector vec(vector);		// creates Rcpp vector from SEXP
-    Rcpp::NumericVector orig(vector);		// keep a copy (as the classic version does)
+    Rcpp::NumericMatrix mat(matrix);	// creates Rcpp matrix from SEXP
+    Rcpp::NumericMatrix orig(matrix);	// keep a copy 
 
     // we could query size via
-    //   int n = vec.size();
-    // and loop over the vector, but using the STL is so much nicer
+    //   int n = mat.nrow(), k=mat.ncol();
+    // and loop over the elements, but using the STL is so much nicer
     // so we use a STL transform() algorithm on each element
-    std::transform(orig.begin(), orig.end(), vec.begin(), sqrt);
+    std::transform(orig.begin(), orig.end(), mat.begin(), sqrt);
 
-    Rcpp::Pairlist res(Rcpp::Named( "result", vec),
+    Rcpp::Pairlist res(Rcpp::Named( "result", mat),
                        Rcpp::Named( "original", orig));
 
     return res;
 }
 
-RcppExport SEXP classicRcppVectorExample(SEXP vector) {
+RcppExport SEXP classicRcppMatrixExample(SEXP matrix) {
 
     SEXP rl = R_NilValue; 		// Use this when there is nothing to be returned.
     char *exceptionMesg = NULL;
@@ -48,23 +48,22 @@ RcppExport SEXP classicRcppVectorExample(SEXP vector) {
     try {
 
 	// Get parameters in params.
-	RcppVector<int> vec(vector);
-	int n = vec.size();
+	RcppMatrix<int> orig(matrix);
+	int n = orig.rows(), k = orig.cols();
 	
-	Rprintf("\nIn C++, seeing a vector of length %d\n", n);
-
-	// create a C++ STL vector, and reserve appropriate size
-	std::vector<double> res(n);
-	
+	RcppMatrix<double> mat(n, k); 	// reserve n by k matrix
+ 
 	for (int i=0; i<n; i++) {
-	    res[i] = sqrt(static_cast<double>(vec(i)));
+	    for (int j=0; j<k; j++) {
+		mat(i,j) = sqrt(orig(i,j));
+	    }
 	}
 
 	// Build result set to be returned as a list to R.
 	RcppResultSet rs;
 
-	rs.add("result",  res);
-	rs.add("original", vec);
+	rs.add("result",  mat);
+	rs.add("original", orig);
 
 	// Get the list to be returned to R.
 	rl = rs.getReturnList();

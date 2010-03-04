@@ -1,5 +1,5 @@
 
-## RcppVectorExample.R: Rcpp R/C++ interface class library RcppVector example
+## RcppMatrixExample.R: Rcpp R/C++ interface class library RcppMatrix example
 ##
 ## Copyright (C) 2008        Dirk Eddelbuettel
 ## Copyright (C) 2009 - 2010 Dirk Eddelbuettel and Romain Francois
@@ -19,14 +19,15 @@
 ## You should have received a copy of the GNU General Public License
 ## along with Rcpp.  If not, see <http://www.gnu.org/licenses/>.
 
-RcppVectorExample <- function(vec=seq(1,9)^2, api=c("classic", "new")) {
+RcppMatrixExample <- function(mat=matrix(seq(1,9)^2, ncol=3),
+                              api=c("classic", "new")) {
 
     api <- match.arg(api)               # match to classic or new
-    fun <- paste(api, "RcppVectorExample", sep="")
+    fun <- paste(api, "RcppMatrixExample", sep="")
 
     ## Make the call...
     val <- .Call(fun,                   # either new or classic
-                 vec,
+                 mat,
                  PACKAGE="RcppExamples")
 
     val
