@@ -25,8 +25,8 @@
 
 RcppExport SEXP newRcppMatrixExample(SEXP matrix) {
 
-    Rcpp::NumericMatrix mat(matrix);	// creates Rcpp matrix from SEXP
-    Rcpp::NumericMatrix orig(matrix);	// keep a copy 
+    Rcpp::NumericMatrix orig(matrix);	// creates Rcpp matrix from SEXP
+    Rcpp::NumericMatrix mat(orig.nrow(), orig.ncol());	// keep a copy 
 
     // we could query size via
     //   int n = mat.nrow(), k=mat.ncol();
