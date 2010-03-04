@@ -21,7 +21,26 @@
 // You should have received a copy of the GNU General Public License
 // along with Rcpp.  If not, see <http://www.gnu.org/licenses/>.
 
-RcppExport SEXP RcppVectorExample(SEXP vector) {
+#include <Rcpp.h>
+
+RcppExport SEXP newRcppVectorExample(SEXP vector) {
+
+    Rcpp::NumericVector vec(vector);		// creates Rcpp vector from SEXP
+    Rcpp::NumericVector orig(vector);		// keep a copy (as the classic version does)
+
+    // we could query size via
+    //   int n = vec.size();
+    // and loop over the vector, but using the STL is so much nicer
+    // so we use a STL transform() algorithm on each element
+    std::transform(orig.begin(), orig.end(), vec.begin(), sqrt);
+
+    Rcpp::Pairlist res(Rcpp::Named( "result", vec),
+                       Rcpp::Named( "original", orig));
+
+    return res;
+}
+
+RcppExport SEXP classicRcppVectorExample(SEXP vector) {
 
     SEXP rl = R_NilValue; 		// Use this when there is nothing to be returned.
     char *exceptionMesg = NULL;
@@ -61,4 +80,5 @@ RcppExport SEXP RcppVectorExample(SEXP vector) {
 
     return rl;
 }
+
 

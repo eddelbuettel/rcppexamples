@@ -19,7 +19,10 @@
 ## You should have received a copy of the GNU General Public License
 ## along with Rcpp.  If not, see <http://www.gnu.org/licenses/>.
 
-RcppVectorExample <- function(v) {
+RcppVectorExample <- function(v, api=c("classic", "new")) {
+
+    api <- match.arg(api)
+    fun <- paste(api, "RcppVectorExample", sep="")
 
     ## Check that params is properly set.
     if (missing(v)) {
@@ -28,16 +31,9 @@ RcppVectorExample <- function(v) {
     }
 
     ## Make the call...
-    val <- .Call("RcppVectorExample",
+    val <- .Call(fun,
                  v,
                  PACKAGE="RcppExamples")
-
-    ## Define a class for the return value so we can control what gets
-    ## printed when a variable assigned this value is typed on a line by itself.
-    ## This has the effect of calling the function print.RcppExample(). The
-    ## function (defined below) simply prints the names of the fields that are
-    ## available. Access each field with val$name.
-    class(val) <- "RcppExample"
 
     val
 }

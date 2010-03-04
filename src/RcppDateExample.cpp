@@ -21,6 +21,8 @@
 // You should have received a copy of the GNU General Public License
 // along with Rcpp.  If not, see <http://www.gnu.org/licenses/>.
 
+#include <Rcpp.h>
+
 RcppExport SEXP RcppDateExample(SEXP dvsexp, SEXP dtvsexp) {
 
     SEXP rl = R_NilValue;		 // Use this when there is nothing to be returned.
