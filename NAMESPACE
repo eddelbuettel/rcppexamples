@@ -5,7 +5,8 @@ export(RcppExample,
        RcppDateExample,
        RcppParamsExample,
        RcppVectorExample,
-       RcppMatrixExample
+       RcppMatrixExample,
+       RcppStringVectorExample
 )
 
 #importFrom( utils, capture.output )

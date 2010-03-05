@@ -5,6 +5,8 @@
 \alias{RcppMatrixView}
 \alias{RcppStringVector}
 \alias{RcppVectorExample}
+\alias{RcppMatrixExample}
+\alias{RcppStringVectorExample}
 \title{C++ classes for receiving R object in C++}
 \description{
   \code{RcppVector}, \code{RcppMatrix} and \code{RcppStringVector} are

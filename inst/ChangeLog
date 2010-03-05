@@ -1,7 +1,9 @@
 2010-03-04  Dirk Eddelbuettel  <edd@dexter>
 
 	* src/RcppMatrixExample.cpp: Added 'classic' + 'new' API examples
-	* R/RcppVectorExample.R: idem
+	* R/RcppMatrixExample.R: idem
+	* src/RcppStringVectorExample.cpp: idem
+	* R/RcppStringVectorExample.R: idem
 
 2010-03-03  Dirk Eddelbuettel  <edd@dexter>
 

@@ -1,6 +1,6 @@
 // -*- mode: C++; c-indent-level: 4; c-basic-offset: 4; tab-width: 8 -*-
 //
-// RcppMatrixExample.cpp: Rcpp R/C++ interface class library RcppMatrix example
+// RcppStringVectorExample.cpp: Rcpp R/C++ interface class library 
 //
 // Copyright (C) 2005 - 2006 Dominick Samperi
 // Copyright (C) 2008        Dirk Eddelbuettel
@@ -23,46 +23,41 @@
 
 #include <Rcpp.h>
 
-RcppExport SEXP newRcppMatrixExample(SEXP matrix) {
+RcppExport SEXP newRcppStringVectorExample(SEXP strvec) {
 
-    Rcpp::NumericMatrix orig(matrix);	// creates Rcpp matrix from SEXP
-    Rcpp::NumericMatrix mat(orig.nrow(), orig.ncol());	
+    Rcpp::StringVector orig(strvec);		// creates Rcpp string vector from SEXP
+    Rcpp::StringVector vec(orig.size());	
 
-    // we could query size via
-    //   int n = mat.nrow(), k=mat.ncol();
-    // and loop over the elements, but using the STL is so much nicer
-    // so we use a STL transform() algorithm on each element
-    std::transform(orig.begin(), orig.end(), mat.begin(), sqrt);
+    for (int i=0; i<orig.size(); i++) {
+	std::string txt(orig[i]);
+	std::transform(txt.begin(), txt.end(), txt.begin(), ::tolower);
+	vec[i] = txt;
+    }
 
-    Rcpp::Pairlist res(Rcpp::Named( "result", mat),
+    Rcpp::Pairlist res(Rcpp::Named( "result", vec),
                        Rcpp::Named( "original", orig));
 
     return res;
 }
 
-RcppExport SEXP classicRcppMatrixExample(SEXP matrix) {
+RcppExport SEXP classicRcppStringVectorExample(SEXP strvec) {
 
     SEXP rl = R_NilValue; 		// Use this when there is nothing to be returned.
     char *exceptionMesg = NULL;
 
     try {
 
-	// Get parameters in params.
-	RcppMatrix<int> orig(matrix);
-	int n = orig.rows(), k = orig.cols();
+	RcppStringVector orig(strvec);
+	RcppStringVector vec(strvec);
 	
-	RcppMatrix<double> mat(n, k); 	// reserve n by k matrix
- 
-	for (int i=0; i<n; i++) {
-	    for (int j=0; j<k; j++) {
-		mat(i,j) = sqrt(orig(i,j));
-	    }
+	for (int i=0; i<orig.size(); i++) {
+	    std::transform(orig(i).begin(), orig(i).end(), 
+			   vec(i).begin(), ::tolower);	
 	}
-
 	// Build result set to be returned as a list to R.
 	RcppResultSet rs;
 
-	rs.add("result",  mat);
+	rs.add("result",  vec);
 	rs.add("original", orig);
 
 	// Get the list to be returned to R.
