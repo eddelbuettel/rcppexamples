@@ -4,24 +4,29 @@
 \alias{RcppDateVector}
 \alias{RcppDatetimeVector}
 \alias{RcppDateExample}
-\title{C++ classes for receiving date and datetime R objects in C++}
+\title{C++ classes for interfacing date and datetime R objects}
 \description{
   \code{RcppDate}, \code{RcppDatetime}, \code{RcppDateVector} and
-  \code{RcppDatetimeVector} are C++ classes defined in \code{Rcpp.h} that can
-  pass scalars and vectors of of \R objects of types \code{Date} and
-  \code{POSIXct}, respectively, to C++ via the \code{.Call()} function interface. 
+  \code{RcppDatetimeVector} are C++ classes defined in their respective
+  headers files.  They are part of the 'classic' Rcpp API. These classes
+  pass scalars and vectors of \R objects of types \code{Date} and
+  \code{POSIXct}, respectively, to C++ via the \code{.Call()} function
+  interface.  
   
   Member functions are provided to query the dimension of the vector or
   matrix object, convert it in a corresponding \code{C} representation.
 
   \R objects of type \code{Date}, and hence the \code{RcppDate} and
-  \code{RcppDateVector} objects, are internally represented as an integer
-  counting days since the epoch, i.e. January 1, 1970. Similarly, \R objects of type
-  \code{POSIXct} and the \code{RcppDatetime} and
-  \code{RcppDatetimeVector} objects, are internally represented as
-  seconds since the epoch.  However, \R extends the POSIX standard by
-  using a double leading to microsecond precision in timestamps. This is
-  fully supported by \code{Rcpp} as well.
+  \code{RcppDateVector} objects, are internally represented as an
+  integer counting days since the epoch, i.e. January 1,
+  1970. Similarly, \R objects of type \code{POSIXct} and the
+  \code{RcppDatetime} and \code{RcppDatetimeVector} objects, are
+  internally represented as seconds since the epoch.  However, \R
+  extends the POSIX standard by using a double leading to microsecond
+  precision in timestamps. This is fully supported by \code{Rcpp} as
+  well.
+
+  The new API currently has no explicit Date or Datetime types.
 }
 %\usage{
 %}
@@ -94,3 +99,4 @@ result
 }
 \keyword{programming}
 \keyword{interface}
+

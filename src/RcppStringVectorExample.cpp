@@ -23,16 +23,25 @@
 
 #include <Rcpp.h>
 
+// local helper function to transform all characters of a given string
+void stringToLower(std::string & s) {
+    std::transform(s.begin(), s.end(), s.begin(), ::tolower);
+}
+
 RcppExport SEXP newRcppStringVectorExample(SEXP strvec) {
 
     Rcpp::StringVector orig(strvec);		// creates Rcpp string vector from SEXP
     Rcpp::StringVector vec(orig.size());	
 
+    std::string txt;
     for (int i=0; i<orig.size(); i++) {
-	std::string txt(orig[i]);
-	std::transform(txt.begin(), txt.end(), txt.begin(), ::tolower);
+	txt = orig[i];
+	stringToLower(txt);
 	vec[i] = txt;
     }
+    //std::transform(orig.begin(), orig.end(), vec.begin(), stringToLower);
+    //std::for_each(vec.begin(), vec.end(), stringToLower);
+    
 
     Rcpp::Pairlist res(Rcpp::Named( "result", vec),
                        Rcpp::Named( "original", orig));

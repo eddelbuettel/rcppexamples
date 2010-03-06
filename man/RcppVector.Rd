@@ -10,9 +10,9 @@
 \title{C++ classes for receiving R object in C++}
 \description{
   \code{RcppVector}, \code{RcppMatrix} and \code{RcppStringVector} are
-  C++ classes defined in \code{Rcpp.h} that can
-  pass vectors (matrices) of \R objects of appropriate types to C++ via
-  the \code{.Call()} function interface. 
+  C++ classes that can pass vectors (matrices) of \R objects of
+  appropriate types to C++ via the \code{.Call()} function interface. 
+  They are part of the 'classic' Rcpp API. 
   
   The vector and matrix types are templated and can operate on \R types
   \code{intger} and \code{numeric}. 
@@ -24,6 +24,12 @@
   matrix object, convert it in a corresponding \code{C} representation,
   and also to convert it into a corresponding STL object.
 
+  The new API has classes \code{NumericVector}, \code{NumericMatrix},
+  \code{CharacterVector} (and also an alias \code{StringVector}).
+
+  The files \code{RcppVectorExample.cpp} and
+  \code{RcppMatrixExample.cpp} provide examples for both the classic and
+  new APIs.
 }
 %\usage{
 %}

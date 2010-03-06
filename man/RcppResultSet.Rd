@@ -2,9 +2,10 @@
 \alias{RcppResultSet}
 \title{C++ class for sending C++ objects back to R}
 \description{
-  \code{RcppResultSet} is a C++ class defined in \code{Rcpp.h} that can
+  \code{RcppResultSet} is a C++ class defined in \code{RcppResultSet.h} that can
   assign any number of C++ objects to \R in a single named list object 
-  as the \code{SEXP} return value of a \code{.Call()} function call.
+  as the \code{SEXP} return value of a \code{.Call()} function call. It
+  is part of the classic API.
   
   The C++ objects can be of different types that are limited to 
   types  \code{double},  \code{int}, \code{string}, vectors of
@@ -23,6 +24,7 @@
   \code{integer}, or \code{character}.  The \code{C++} code can all be
   retrieved in \R as elements of a named list object.
 
+  The new API has more generic templated functions.
 }
 %\usage{
 %}
@@ -74,7 +76,6 @@
   The class member function \code{checkNames} can be used to verify that the
   \code{SEXP} object passed to the function contains a given set of
   named object.
-
 }
 %\references{
 %  See \code{Rcpp.h} and the package vignette.

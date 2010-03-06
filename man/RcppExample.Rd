@@ -3,12 +3,12 @@
 \alias{print.RcppExample}
 \title{Rcpp R / C++ interface example}
 \description{
-  \code{RcppExample} illustrates how the \code{Rcpp} R/C++
-  interface class library is used.
+  \code{RcppExample} illustrates how the older \code{Rcpp} R/C++ 
+  interface class library is used. It provides fairly complete coverage
+  for the older \sQuote{classic} API. 
 }
 \usage{
-RcppExample(params, nlist, numvec, nummat, df, datevec, stringvec,
-fnvec, fnlist)
+RcppExample(params, nlist, numvec, nummat, df, datevec, stringvec, fnvec, fnlist)
 \method{print}{RcppExample}(x,...)
 }
 \arguments{
@@ -26,7 +26,6 @@ fnvec, fnlist)
   \item{...}{Extra named parameters.}
   }
 \details{
-
   The C++ represention of data frames are not passed back to R in a form
   that R recognizes as a data frame, but it is a simple matter to do the
   conversion. For example, the return value named \code{PreDF} (see
