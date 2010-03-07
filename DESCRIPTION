@@ -8,7 +8,7 @@ Maintainer: Dirk Eddelbuettel and Romain Francois <RomainAndDirk@r-enthusiasts.c
 Description: Examples for Seamless R and C++ integration
  The Rcpp package contains a C++ library that facilitates the integration of
  R and C++ in various ways. This package provides examples.
-Depends: R (>= 2.10.0), Rcpp (>= 0.7.7)
+Depends: R (>= 2.10.0), Rcpp (>= 0.7.7.14)
 Suggests: inline (>= 0.3.4), RUnit 
 SystemRequirements: None
 URL: http://dirk.eddelbuettel.com/code/rcpp.html, http://romainfrancois.blog.free.fr/index.php?category/R-package/Rcpp

@@ -23,28 +23,31 @@
 
 #include <Rcpp.h>
 
-// local helper function to transform all characters of a given string
-void stringToLower(std::string & s) {
-    std::transform(s.begin(), s.end(), s.begin(), ::tolower);
-}
+// local helper class to transform all characters of a given string
+class StringToLower{
+public:
+	StringToLower() : buffer() {}
+	~StringToLower(){}
+	
+	std::string operator()( const char* input){
+		buffer = input ;
+		std::transform( buffer.begin(), buffer.end(), buffer.begin(), ::tolower);
+		return buffer ;
+	}
+private:
+	std::string buffer ;
+} ;
 
 RcppExport SEXP newRcppStringVectorExample(SEXP strvec) {
 
     Rcpp::StringVector orig(strvec);		// creates Rcpp string vector from SEXP
     Rcpp::StringVector vec(orig.size());	
 
-    std::string txt;
-    for (int i=0; i<orig.size(); i++) {
-	txt = orig[i];
-	stringToLower(txt);
-	vec[i] = txt;
-    }
-    //std::transform(orig.begin(), orig.end(), vec.begin(), stringToLower);
-    //std::for_each(vec.begin(), vec.end(), stringToLower);
-    
+    std::transform( orig.begin(), orig.end(), vec.begin(), StringToLower() ) ;
 
-    Rcpp::Pairlist res(Rcpp::Named( "result", vec),
-                       Rcpp::Named( "original", orig));
+    Rcpp::Pairlist res(
+    	Rcpp::Named( "result" )   = vec,
+    	Rcpp::Named( "original" ) = orig ) ;
 
     return res;
 }
