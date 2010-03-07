@@ -25,9 +25,9 @@
 
 RcppExport SEXP newRcppVectorExample(SEXP vector) {
 
-    Rcpp::NumericVector vec(vector);		// creates Rcpp vector from SEXP
-    Rcpp::NumericVector orig(vector);		// keep a copy (as the classic version does)
-
+    Rcpp::NumericVector orig(vector);			// keep a copy (as the classic version does)
+    Rcpp::NumericVector vec(orig.size());		// create a target vector of the same size
+    
     // we could query size via
     //   int n = vec.size();
     // and loop over the vector, but using the STL is so much nicer

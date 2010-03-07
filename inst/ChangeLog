@@ -1,3 +1,9 @@
+2010-03-07  Romain Francois <romain@r-enthusiasts.com
+
+	* src/RcppVectorExample.cpp: use a new vector for the output
+	* src/RcppStringVectorExample.cpp: rework the new api version 
+	using the StringTransformer class (depends on Rcpp >= 0.7.7.15)
+
 2010-03-04  Dirk Eddelbuettel  <edd@dexter>
 
 	* src/RcppMatrixExample.cpp: Added 'classic' + 'new' API examples
