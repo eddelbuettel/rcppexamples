@@ -1,3 +1,8 @@
+2010-03-10  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/Makevars.win: Switch back from backticks to $(shell ...)
+	  which should be fine as GNU make is mandated on Windows anyway
+
 2010-03-07  Romain Francois <romain@r-enthusiasts.com
 
 	* src/RcppVectorExample.cpp: use a new vector for the output
