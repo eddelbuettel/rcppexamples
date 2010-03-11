@@ -1,12 +1,14 @@
 2010-03-10  Dirk Eddelbuettel  <edd@debian.org>
 
+	* DESCRIPTION: Release 0.1.0 for the first CRAN upload
+	
 	* src/Makevars.win: Switch back from backticks to $(shell ...)
 	  which should be fine as GNU make is mandated on Windows anyway
 
 2010-03-07  Romain Francois <romain@r-enthusiasts.com
 
 	* src/RcppVectorExample.cpp: use a new vector for the output
-	* src/RcppStringVectorExample.cpp: rework the new api version 
+	* src/RcppStringVectorExample.cpp: rework the new api version
 	using the StringTransformer class (depends on Rcpp >= 0.7.7.15)
 
 2010-03-04  Dirk Eddelbuettel  <edd@dexter>
