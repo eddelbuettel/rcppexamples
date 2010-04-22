@@ -10,7 +10,7 @@ Description: Examples for Seamless R and C++ integration
  R and C++ in various ways. This package provides examples.
 Depends: R (>= 2.10.0), Rcpp (>= 0.7.11.6)
 Suggests: inline (>= 0.3.4), RUnit 
-SystemRequirements: None
+SystemRequirements: GNU make
 LinkingTo: Rcpp
 URL: http://dirk.eddelbuettel.com/code/rcpp.html, http://romainfrancois.blog.free.fr/index.php?category/R-package/Rcpp
 License: GPL (>= 2)
