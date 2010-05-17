@@ -22,6 +22,7 @@
 // along with Rcpp.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <Rcpp.h>
+#include <cmath>
 
 RcppExport SEXP newRcppMatrixExample(SEXP matrix) {
 
