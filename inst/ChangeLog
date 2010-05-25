@@ -2,6 +2,9 @@
 
 	* src/*.cpp: use BEGIN_RCPP/END_RCPP in new api examples and use List::create
 	instead of Pairlist
+	
+	* src/Makevars.win: apply Brian Ripley's advices from R-devel thread to
+	anticipate changes in R 2.12.0
 
 2010-03-10  Dirk Eddelbuettel  <edd@debian.org>
 
