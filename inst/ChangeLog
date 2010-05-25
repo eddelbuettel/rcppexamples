@@ -1,4 +1,4 @@
-2010-05-25  Romain Francois <romain@r-enthusiasts.com
+2010-05-25  Romain Francois <romain@r-enthusiasts.com>
 
 	* src/*.cpp: use BEGIN_RCPP/END_RCPP in new api examples and use List::create
 	instead of Pairlist
@@ -10,7 +10,7 @@
 	* src/Makevars.win: Switch back from backticks to $(shell ...)
 	  which should be fine as GNU make is mandated on Windows anyway
 
-2010-03-07  Romain Francois <romain@r-enthusiasts.com
+2010-03-07  Romain Francois <romain@r-enthusiasts.com>
 
 	* src/RcppVectorExample.cpp: use a new vector for the output
 	* src/RcppStringVectorExample.cpp: rework the new api version
