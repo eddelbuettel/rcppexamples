@@ -32,11 +32,10 @@ BEGIN_RCPP
     std::transform( orig.begin(), orig.end(), vec.begin(), 
     	Rcpp::make_string_transformer(tolower) ) ;
 
-    Rcpp::Pairlist res(
+    return Rcpp::List::create(
     	Rcpp::Named( "result" )   = vec,
-    	Rcpp::Named( "original" ) = orig ) ;
-
-    return res;
+    	Rcpp::Named( "original" ) = orig 
+    	) ;
 
 END_RCPP
 }

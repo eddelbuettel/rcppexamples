@@ -36,10 +36,11 @@ BEGIN_RCPP
     // so we use a STL transform() algorithm on each element
     std::transform(orig.begin(), orig.end(), mat.begin(), sqrt);
 
-    Rcpp::Pairlist res(Rcpp::Named( "result", mat),
-                       Rcpp::Named( "original", orig));
+    return Rcpp::List::create( 
+    	Rcpp::Named( "result" ) = mat, 
+    	Rcpp::Named( "original" ) = orig
+    	) ;
 
-    return res;
 END_RCPP
 }
 

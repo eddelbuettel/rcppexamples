@@ -1,6 +1,7 @@
 2010-05-25  Romain Francois <romain@r-enthusiasts.com
 
-	* src/*.cpp: use BEGIN_RCPP/END_RCPP in new api examples
+	* src/*.cpp: use BEGIN_RCPP/END_RCPP in new api examples and use List::create
+	instead of Pairlist
 
 2010-03-10  Dirk Eddelbuettel  <edd@debian.org>
 
