@@ -25,6 +25,7 @@
 #include <cmath>
 
 RcppExport SEXP newRcppVectorExample(SEXP vector) {
+BEGIN_RCPP
 
     Rcpp::NumericVector orig(vector);			// keep a copy (as the classic version does)
     Rcpp::NumericVector vec(orig.size());		// create a target vector of the same size
@@ -39,6 +40,8 @@ RcppExport SEXP newRcppVectorExample(SEXP vector) {
                        Rcpp::Named( "original", orig));
 
     return res;
+
+END_RCPP
 }
 
 RcppExport SEXP classicRcppVectorExample(SEXP vector) {

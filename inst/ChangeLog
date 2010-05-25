@@ -1,3 +1,7 @@
+2010-05-25  Romain Francois <romain@r-enthusiasts.com
+
+	* src/*.cpp: use BEGIN_RCPP/END_RCPP in new api examples
+
 2010-03-10  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION: Release 0.1.0 for the first CRAN upload

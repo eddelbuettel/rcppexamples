@@ -25,6 +25,7 @@
 #include <cmath>
 
 RcppExport SEXP newRcppMatrixExample(SEXP matrix) {
+BEGIN_RCPP
 
     Rcpp::NumericMatrix orig(matrix);	// creates Rcpp matrix from SEXP
     Rcpp::NumericMatrix mat(orig.nrow(), orig.ncol());	
@@ -39,6 +40,7 @@ RcppExport SEXP newRcppMatrixExample(SEXP matrix) {
                        Rcpp::Named( "original", orig));
 
     return res;
+END_RCPP
 }
 
 RcppExport SEXP classicRcppMatrixExample(SEXP matrix) {
