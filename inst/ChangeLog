@@ -1,15 +1,15 @@
 2010-05-25  Romain Francois <romain@r-enthusiasts.com>
 
-	* src/*.cpp: use BEGIN_RCPP/END_RCPP in new api examples and use List::create
-	instead of Pairlist
-	
-	* src/Makevars.win: apply Brian Ripley's advices from R-devel thread to
-	anticipate changes in R 2.12.0
+	* src/*.cpp: use BEGIN_RCPP/END_RCPP in new api examples and use
+	List::create instead of Pairlist
+
+	* src/Makevars.win: apply Brian Ripley's advice from R-devel thread
+	to anticipate changes in R 2.12.0
 
 2010-03-10  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION: Release 0.1.0 for the first CRAN upload
-	
+
 	* src/Makevars.win: Switch back from backticks to $(shell ...)
 	  which should be fine as GNU make is mandated on Windows anyway
 
