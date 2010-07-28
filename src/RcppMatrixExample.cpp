@@ -34,7 +34,7 @@ BEGIN_RCPP
     //   int n = mat.nrow(), k=mat.ncol();
     // and loop over the elements, but using the STL is so much nicer
     // so we use a STL transform() algorithm on each element
-    std::transform(orig.begin(), orig.end(), mat.begin(), std::sqrt);
+    std::transform(orig.begin(), orig.end(), mat.begin(), ::sqrt);
 
     return Rcpp::List::create( 
     	Rcpp::Named( "result" ) = mat, 

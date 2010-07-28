@@ -1,3 +1,10 @@
+2010-07-28  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION: Use LinkingTo: Rcpp
+	* DESCRIPTION: Update Depends: on R and Rcpp to newer version
+
+	* src/Makevars: Simplified thanks to 'LinkingTo: Rcpp'
+
 2010-05-25  Romain Francois <romain@r-enthusiasts.com>
 
 	* src/*.cpp: use BEGIN_RCPP/END_RCPP in new api examples and use
