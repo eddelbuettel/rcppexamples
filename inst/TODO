@@ -1,0 +1,4 @@
+
+o	reorganize Rd files so that RcppExamples emphacizes the new API instead 
+	of the old Rcpp API
+

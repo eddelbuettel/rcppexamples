@@ -26,13 +26,6 @@
 
   The new API has more generic templated functions.
 }
-%\usage{
-%}
-%\arguments{
-%}
-%\value{
-%  Internal to the C++ code.
-%}
 \details{
   Usage of \code{RcppResultSet} from  \code{C++} is fully defined in
   \code{RcppResultSet.h}. An example for returning data to \R at the end of a
@@ -77,9 +70,6 @@
   \code{SEXP} object passed to the function contains a given set of
   named object.
 }
-%\references{
-%  See \code{Rcpp.h} and the package vignette.
-%}
 \seealso{
   \code{RcppExample}.
 }

@@ -31,13 +31,6 @@
   \code{RcppMatrixExample.cpp} provide examples for both the classic and
   new APIs.
 }
-%\usage{
-%}
-%\arguments{
-%}
-%\value{
-%  Internal to the C++ code.
-%}
 \details{
   Usage of \code{RcppVector}, \code{RcppMatrix} and
   \code{RcppStringVector} in \code{C++} is fully defined in
@@ -85,9 +78,6 @@
   }
 
 }
-%\references{
-%  See \code{Rcpp.h} and the package vignette.
-%}
 \seealso{
   \code{RcppExample}.
 }

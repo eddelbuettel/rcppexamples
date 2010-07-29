@@ -12,6 +12,11 @@
   or \code{Date}. These types are mapped into, respectively, the
   corresponding C++ types \code{double},  \code{int}, \code{string},
   \code{bool} and \code{Date} (a custom class defined by \code{Rcpp}.
+  
+  \code{RcppParams} is part of the old Rcpp API, and should be replace by 
+  \code{Rcpp::List} which is more flexible and can be used for both inputs and
+  outputs. \code{RcppParams} is retained for backwards compatibility, but 
+  should be avoided in new projects and replaced in old projects.
 }
 \usage{
   val <- RcppParamsExample(params) 

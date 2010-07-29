@@ -26,15 +26,10 @@
   precision in timestamps. This is fully supported by \code{Rcpp} as
   well.
 
-  The new API currently has no explicit Date or Datetime types.
+  The new API currently has the classes \code{Rcpp::Date}, \code{Rcpp::Datetime}, 
+  \code{Rcpp::DateVector} and \code{Rcpp::DatetimeVector} which are preferred
+  for new developments, but currently less documented. 
 }
-%\usage{
-%}
-%\arguments{
-%}
-%\value{
-%  Internal to the C++ code.
-%}
 \details{
   Usage of the \code{RcppDate}, \code{RcppDatetime} (and their vector
   extensions) in \code{C++} is fully defined in the respective header
