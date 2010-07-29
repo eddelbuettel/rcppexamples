@@ -1,3 +1,16 @@
+2010-07-29  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION: Release 0.1.1
+
+	* TODO: Expanded noting need for additional documentation
+
+2010-07-29  Romain Francois <romain@r-enthusiasts.com>
+
+	* TODO: Added, noting need to emphasize new API
+
+	* man/*: Minor edits noting that the classic API is not recommended
+	for new code
+
 2010-07-28  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION: Use LinkingTo: Rcpp

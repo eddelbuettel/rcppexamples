@@ -1,3 +1,7 @@
+0.1.1   2010-07-29
+
+    o	Minor update, no new examples or documentation added yet
+
 0.1.0   2010-03-10
 
     o	Initial release as a package, carved out of Rcpp 0.7.7
