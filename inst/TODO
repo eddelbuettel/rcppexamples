@@ -1,4 +1,6 @@
 
-o	reorganize Rd files so that RcppExamples emphacizes the new API instead 
-	of the old Rcpp API
+    o   Add more documentation for currently missing new API functionality
+
+    o   Reorganize exisiting Rd files so that RcppExamples emphasizes the new
+	API instead of the old Rcpp API
 
