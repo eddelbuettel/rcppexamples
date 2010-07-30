@@ -1,6 +1,6 @@
 Package: RcppExamples
 Title: Examples using Rcpp to interface R and C++ 
-Version: 0.1.1
+Version: 0.1.1.1
 Date: $Date$
 Author: Dirk Eddelbuettel and Romain Francois, based on code written 
  during 2005 and 2006 by Dominick Samperi 

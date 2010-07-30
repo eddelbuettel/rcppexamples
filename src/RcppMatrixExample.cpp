@@ -24,6 +24,9 @@
 #include <Rcpp.h>
 #include <cmath>
 
+/* suncc needs help to disambiguate between sqrt( float ) and sqrt(double) */
+inline double sqrt_double( double x ){ return ::sqrt( x ) ; }
+
 RcppExport SEXP newRcppMatrixExample(SEXP matrix) {
 BEGIN_RCPP
 
@@ -34,7 +37,7 @@ BEGIN_RCPP
     //   int n = mat.nrow(), k=mat.ncol();
     // and loop over the elements, but using the STL is so much nicer
     // so we use a STL transform() algorithm on each element
-    std::transform(orig.begin(), orig.end(), mat.begin(), ::sqrt);
+    std::transform(orig.begin(), orig.end(), mat.begin(), sqrt_double );
 
     return Rcpp::List::create( 
     	Rcpp::Named( "result" ) = mat, 
@@ -59,7 +62,7 @@ RcppExport SEXP classicRcppMatrixExample(SEXP matrix) {
  
 	for (int i=0; i<n; i++) {
 	    for (int j=0; j<k; j++) {
-		mat(i,j) = sqrt(orig(i,j));
+		mat(i,j) = sqrt_double(orig(i,j));
 	    }
 	}
 
