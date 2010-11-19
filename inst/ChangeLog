@@ -1,3 +1,9 @@
+2010-11-19  Romain Francois <romain@r-enthusiasts.com>
+
+    * src/Makevars: apply new recommended PKG_LIBS declaration
+    
+    * DESCRIPTION: removed SystemRequirements: GNU make
+
 2010-07-29  Romain Francois <romain@r-enthusiasts.com>
 
 	* src/RcppMatrixExample.cpp: disambiguate versions of sqrt

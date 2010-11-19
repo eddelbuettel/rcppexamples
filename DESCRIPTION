@@ -1,6 +1,6 @@
 Package: RcppExamples
 Title: Examples using Rcpp to interface R and C++ 
-Version: 0.1.1.1
+Version: 0.1.1.2
 Date: $Date$
 Author: Dirk Eddelbuettel and Romain Francois, based on code written 
  during 2005 and 2006 by Dominick Samperi 
@@ -12,9 +12,8 @@ Description: Examples for Seamless R and C++ integration
  Note that the documentation in this package currently does not all the
  features in the package.
 Depends: R (>= 2.11.0), Rcpp (>= 0.8.4)
-LinkingTo: 
+LinkingTo: Rcpp
 Suggests: RUnit 
-SystemRequirements: GNU make
 LinkingTo: Rcpp
 URL: http://dirk.eddelbuettel.com/code/rcpp.html, http://romainfrancois.blog.free.fr/index.php?category/R-package/Rcpp
 License: GPL (>= 2)
