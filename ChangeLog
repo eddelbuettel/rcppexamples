@@ -1,8 +1,12 @@
+2010-11-19  Dirk Eddelbuettel  <edd@debian.org>
+
+	* inst/ChangeLog: moved to top-level enabling 'C-x 4 a' lookups
+
 2010-11-19  Romain Francois <romain@r-enthusiasts.com>
 
-    * src/Makevars: apply new recommended PKG_LIBS declaration
-    
-    * DESCRIPTION: removed SystemRequirements: GNU make
+	* src/Makevars: apply new recommended PKG_LIBS declaration
+
+	* DESCRIPTION: removed SystemRequirements: GNU make
 
 2010-07-29  Romain Francois <romain@r-enthusiasts.com>
 
