@@ -14,6 +14,5 @@ Description: Examples for Seamless R and C++ integration
 Depends: R (>= 2.11.0), Rcpp (>= 0.8.4)
 LinkingTo: Rcpp
 Suggests: RUnit 
-LinkingTo: Rcpp
 URL: http://dirk.eddelbuettel.com/code/rcpp.html, http://romainfrancois.blog.free.fr/index.php?category/R-package/Rcpp
 License: GPL (>= 2)
