@@ -21,7 +21,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Rcpp.  If not, see <http://www.gnu.org/licenses/>.
 
-#include <Rcpp.h>
+#include <RcppClassic.h>
 
 RcppExport SEXP newRcppStringVectorExample(SEXP strvec) {
 BEGIN_RCPP

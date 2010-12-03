@@ -20,7 +20,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Rcpp.  If not, see <http://www.gnu.org/licenses/>.
 
-#include <Rcpp.h>
+#include <RcppClassic.h>
 
 /*
  * The following class definitions employ advanced features of the Rcpp

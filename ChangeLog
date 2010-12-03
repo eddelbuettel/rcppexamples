@@ -1,3 +1,13 @@
+2010-12-03  Romain Francois <romain@r-enthusiasts.com>
+
+    * DESCRIPTION: depending on RcppClassic
+    
+    * src/*.cpp: using include <RcppClassic.h>
+    
+    * src/Makevars: link against the RcppClassic library
+    
+    * src/Makevars.win : link against the RcppClassic library
+
 2010-11-19  Dirk Eddelbuettel  <edd@debian.org>
 
 	* inst/ChangeLog: moved to top-level enabling 'C-x 4 a' lookups
