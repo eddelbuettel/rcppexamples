@@ -1,10 +1,12 @@
-0.1.2   (future)
+0.1.2   2010-12-20
 
     o	Updated src/Makevars
     
     o   Now depends also on RcppClassic so that we can keep continue to show
         examples using the classic API
     
+    o	Added examples for Rcpp::Date, Rcpp::Datetime and Rcpp::List
+
 0.1.1   2010-07-29
 
     o	Minor update, no new examples or documentation added yet

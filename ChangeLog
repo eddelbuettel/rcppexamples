@@ -1,12 +1,25 @@
+2010-12-20  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION: Release 0.1.2
+
+	* src/newRcppDateExample.cpp (newRcppDateExample): New API example
+	* src/newRcppParamsExample.cpp (newRcppParamsExample): dito
+
+	* R/RcppDateExample.R (RcppDateExample): Call new API example
+	* R/RcppParamsExample.R (RcppParamsExample): dito
+
+	* src/*: Split source files into 'new*.cpp' and 'classic*.cpp' as
+	they use a different include header file anyway
+
 2010-12-03  Romain Francois <romain@r-enthusiasts.com>
 
-    * DESCRIPTION: depending on RcppClassic
-    
-    * src/*.cpp: using include <RcppClassic.h>
-    
-    * src/Makevars: link against the RcppClassic library
-    
-    * src/Makevars.win : link against the RcppClassic library
+	* DESCRIPTION: depending on RcppClassic
+
+	* src/*.cpp: using include <RcppClassic.h>
+
+	* src/Makevars: link against the RcppClassic library
+
+	* src/Makevars.win : link against the RcppClassic library
 
 2010-11-19  Dirk Eddelbuettel  <edd@debian.org>
 
