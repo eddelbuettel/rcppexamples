@@ -23,7 +23,38 @@
 
 #include <RcppClassic.h>
 
-RcppExport SEXP RcppParamsExample(SEXP params) {
+RcppExport SEXP newRcppParamsExample(SEXP params) {
+
+    try {					// or use BEGIN_RCPP macro
+
+	Rcpp::List rparam(params); 		// Get parameters in params.
+	std::string method   = Rcpp::as<std::string>(rparam["method"]);
+	double tolerance     = Rcpp::as<double>(rparam["tolerance"]);
+	int    maxIter       = Rcpp::as<int>(rparam["maxIter"]);
+	Rcpp::Date startDate = Rcpp::Date(Rcpp::as<int>(rparam["startDate"])); // ctor from int
+	
+	Rprintf("\nIn C++, seeing the following value\n");
+	Rprintf("Method argument    : %s\n", method.c_str());
+	Rprintf("Tolerance argument : %f\n", tolerance);
+	Rprintf("MaxIter argument   : %d\n", maxIter);
+	Rprintf("Start date argument: %04d-%02d-%02d\n", 
+		startDate.getYear(), startDate.getMonth(), startDate.getDay());
+
+	return Rcpp::List::create(Rcpp::Named("method", method),
+				  Rcpp::Named("tolerance", tolerance),
+				  Rcpp::Named("maxIter", maxIter),
+				  Rcpp::Named("startDate", startDate),
+				  Rcpp::Named("params", params));  // or use rparam
+
+    } catch( std::exception &ex ) {		// or use END_RCPP macro
+	forward_exception_to_r( ex );
+    } catch(...) { 
+	::Rf_error( "c++ exception (unknown reason)" ); 
+    }
+    return R_NilValue; // -Wall
+}
+
+RcppExport SEXP classicRcppParamsExample(SEXP params) {
 
     SEXP rl = R_NilValue; 	// Use this when there is nothing to be returned.
     char *exceptionMesg = NULL;

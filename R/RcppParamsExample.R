@@ -19,7 +19,11 @@
 ## You should have received a copy of the GNU General Public License
 ## along with Rcpp.  If not, see <http://www.gnu.org/licenses/>.
 
-RcppParamsExample <- function(params) {
+RcppParamsExample <- function(params,
+                              api=c("classic", "new")) {
+
+    api <- match.arg(api)               # match to classic or new
+    fun <- paste(api, "RcppParamsExample", sep="")
 
     ## Check that params is properly set.
     if (missing(params)) {
@@ -31,7 +35,7 @@ RcppParamsExample <- function(params) {
     }
 
     ## Make the call...
-    val <- .Call("RcppParamsExample",
+    val <- .Call(fun,
                  params,
                  PACKAGE="RcppExamples")
 

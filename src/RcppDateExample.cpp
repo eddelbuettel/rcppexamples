@@ -23,7 +23,39 @@
 
 #include <RcppClassic.h>
 
-RcppExport SEXP RcppDateExample(SEXP dvsexp, SEXP dtvsexp) {
+RcppExport SEXP newRcppDateExample(SEXP dvsexp, SEXP dtvsexp) {
+
+    try {					// or use BEGIN_RCPP macro
+
+	Rcpp::DateVector dv(dvsexp);
+	Rcpp::DatetimeVector dtv(dtvsexp);
+	Rcpp::Function formatDate("format.Date");
+	Rcpp::Function formatDatetime("format.POSIXct");
+
+	Rprintf("\nIn C++, seeing the following date value\n");
+	for (int i=0; i<dv.size(); i++) {
+	    std::cout << Rcpp::as<std::string>(formatDate(Rcpp::wrap(dv[i]))) << std::endl;
+	    dv[i] = dv[i] + 7;		// shift a week
+	}
+	Rprintf("\nIn C++, seeing the following datetime value\n");
+	for (int i=0; i<dtv.size(); i++) {
+	    std::cout << Rcpp::as<std::string>(formatDatetime(Rcpp::wrap(dtv[i]))) << std::endl;
+	    dtv[i] = dtv[i] + 0.250;    // shift 250 millisec
+	}
+
+	// Build result set to be returned as a list to R.
+	return Rcpp::List::create(Rcpp::Named("date",   dv),
+				  Rcpp::Named("datetime", dtv));
+
+    } catch( std::exception &ex ) {		// or use END_RCPP macro
+	forward_exception_to_r( ex );
+    } catch(...) { 
+	::Rf_error( "c++ exception (unknown reason)" ); 
+    }
+    return R_NilValue; // -Wall
+}
+
+RcppExport SEXP classicRcppDateExample(SEXP dvsexp, SEXP dtvsexp) {
 
     SEXP rl = R_NilValue;		 // Use this when there is nothing to be returned.
     char *exceptionMesg = NULL;

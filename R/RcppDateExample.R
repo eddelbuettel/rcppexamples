@@ -19,7 +19,11 @@
 ## You should have received a copy of the GNU General Public License
 ## along with Rcpp.  If not, see <http://www.gnu.org/licenses/>.
 
-RcppDateExample <- function(dv, dtv) {
+RcppDateExample <- function(dv, dtv,
+                            api=c("classic", "new")) {
+
+    api <- match.arg(api)               # match to classic or new
+    fun <- paste(api, "RcppDateExample", sep="")
 
     ## Check that params is properly set.
     if (missing(dv)) {
@@ -33,7 +37,7 @@ RcppDateExample <- function(dv, dtv) {
     }
 
     ## Make the call...
-    val <- .Call("RcppDateExample",
+    val <- .Call(fun,                   # either new or classic
                  dv, dtv,
                  PACKAGE="RcppExamples")
 
