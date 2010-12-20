@@ -1,6 +1,6 @@
 // -*- mode: C++; c-indent-level: 4; c-basic-offset: 4; tab-width: 8 -*-
 //
-// RcppVectorExample.cpp: Rcpp R/C++ interface class library RcppVector example
+// RcppStringVectorExample.cpp: Rcpp R/C++ interface class library 
 //
 // Copyright (C) 2005 - 2006 Dominick Samperi
 // Copyright (C) 2008        Dirk Eddelbuettel
@@ -22,53 +22,26 @@
 // along with Rcpp.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <RcppClassic.h>
-#include <cmath>
 
-RcppExport SEXP newRcppVectorExample(SEXP vector) {
-BEGIN_RCPP
-
-    Rcpp::NumericVector orig(vector);			// keep a copy (as the classic version does)
-    Rcpp::NumericVector vec(orig.size());		// create a target vector of the same size
-    
-    // we could query size via
-    //   int n = vec.size();
-    // and loop over the vector, but using the STL is so much nicer
-    // so we use a STL transform() algorithm on each element
-    std::transform(orig.begin(), orig.end(), vec.begin(), sqrt);
-
-    return Rcpp::List::create( 
-    	Rcpp::Named( "result" ) = vec, 
-    	Rcpp::Named( "original" ) = orig
-    	) ;
-
-END_RCPP
-}
-
-RcppExport SEXP classicRcppVectorExample(SEXP vector) {
+RcppExport SEXP classicRcppStringVectorExample(SEXP strvec) {
 
     SEXP rl = R_NilValue; 		// Use this when there is nothing to be returned.
     char *exceptionMesg = NULL;
 
     try {
 
-	// Get parameters in params.
-	RcppVector<int> vec(vector);
-	int n = vec.size();
+	RcppStringVector orig(strvec);
+	RcppStringVector vec(strvec);
 	
-	Rprintf("\nIn C++, seeing a vector of length %d\n", n);
-
-	// create a C++ STL vector, and reserve appropriate size
-	std::vector<double> res(n);
-	
-	for (int i=0; i<n; i++) {
-	    res[i] = sqrt(static_cast<double>(vec(i)));
+	for (int i=0; i<orig.size(); i++) {
+	    std::transform(orig(i).begin(), orig(i).end(), 
+			   vec(i).begin(), ::tolower);	
 	}
-
 	// Build result set to be returned as a list to R.
 	RcppResultSet rs;
 
-	rs.add("result",  res);
-	rs.add("original", vec);
+	rs.add("result",  vec);
+	rs.add("original", orig);
 
 	// Get the list to be returned to R.
 	rl = rs.getReturnList();
