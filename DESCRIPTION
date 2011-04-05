@@ -9,8 +9,12 @@ Description: Examples for Seamless R and C++ integration
  The Rcpp package contains a C++ library that facilitates the integration of
  R and C++ in various ways. This package provides examples.
  .
- Note that the documentation in this package currently does not all the
- features in the package.
+ Note that the documentation in this package currently does not cover all the
+ features in the package. It is not even close. 
+ .
+ It does however provide a few example based on both the (deprecated)
+ `classic' API and the current Rcpp API. As such, it can help in porting from
+ the older API to the newer API.
 Depends: R (>= 2.11.0), Rcpp (>= 0.9.0), RcppClassic
 LinkingTo: RcppClassic, Rcpp
 Suggests: RUnit 
