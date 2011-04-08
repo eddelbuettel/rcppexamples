@@ -1,3 +1,9 @@
+2011-04-08  Dirk Eddelbuettel  <edd@debian.org>
+
+	* R/RcppDataFrame.R: Added new example for Rcpp::DataFrame
+	* src/RcppDataFrame.cpp: C++ source for new example
+	* man/RcppDataFrame.Rd: Documentation
+
 2010-12-20  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION: Release 0.1.2
