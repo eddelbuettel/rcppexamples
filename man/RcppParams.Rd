@@ -18,9 +18,6 @@
   outputs. \code{RcppParams} is retained for backwards compatibility, but 
   should be avoided in new projects and replaced in old projects.
 }
-\usage{
-  val <- RcppParamsExample(params) 
-}
 \arguments{
   \item{params}{A heterogeneous list specifying \code{method} (string),
     \code{tolerance} (double), \code{maxIter} (int) and \code{startDate}
