@@ -2,7 +2,7 @@
 //
 // RcppParamsExample.h: Rcpp R/C++ interface class library RcppDate example
 //
-// Copyright (C) 2009 - 2010 Dirk Eddelbuettel and Romain Francois
+// Copyright (C) 2009 - 2011 Dirk Eddelbuettel and Romain Francois
 //
 // This file is part of Rcpp.
 //
@@ -32,12 +32,12 @@ RcppExport SEXP newRcppDateExample(SEXP dvsexp, SEXP dtvsexp) {
 
 	Rprintf("\nIn C++, seeing the following date value\n");
 	for (int i=0; i<dv.size(); i++) {
-	    std::cout << Rcpp::as<std::string>(formatDate(Rcpp::wrap(dv[i]))) << std::endl;
+	    Rcpp::Rcout << Rcpp::as<std::string>(formatDate(Rcpp::wrap(dv[i]))) << std::endl;
 	    dv[i] = dv[i] + 7;		// shift a week
 	}
 	Rprintf("\nIn C++, seeing the following datetime value\n");
 	for (int i=0; i<dtv.size(); i++) {
-	    std::cout << Rcpp::as<std::string>(formatDatetime(Rcpp::wrap(dtv[i]))) << std::endl;
+	    Rcpp::Rcout << Rcpp::as<std::string>(formatDatetime(Rcpp::wrap(dtv[i]))) << std::endl;
 	    dtv[i] = dtv[i] + 0.250;    // shift 250 millisec
 	}
 

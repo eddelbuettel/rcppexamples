@@ -4,7 +4,7 @@
 //
 // Copyright (C) 2005 - 2006 Dominick Samperi
 // Copyright (C) 2008        Dirk Eddelbuettel
-// Copyright (C) 2009 - 2010 Dirk Eddelbuettel and Romain Francois
+// Copyright (C) 2009 - 2011 Dirk Eddelbuettel and Romain Francois
 //
 // This file is part of Rcpp.
 //
@@ -35,12 +35,12 @@ RcppExport SEXP classicRcppDateExample(SEXP dvsexp, SEXP dtvsexp) {
 	
 	Rprintf("\nIn C++, seeing the following date value\n");
 	for (int i=0; i<dv.size(); i++) {
-	    std::cout << dv(i) << std::endl;
+	    Rcpp::Rcout << dv(i) << std::endl;
 	    dv(i) = dv(i) + 7;		// shift a week
 	}
 	Rprintf("\nIn C++, seeing the following datetime value\n");
 	for (int i=0; i<dtv.size(); i++) {
-	    std::cout << dtv(i) << std::endl;
+	    Rcpp::Rcout << dtv(i) << std::endl;
 	    dtv(i) = dtv(i) + 0.250;    // shift 250 millisec
 	}
 
