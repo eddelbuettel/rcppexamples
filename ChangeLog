@@ -1,8 +1,20 @@
+2011-12-28  Dirk Eddelbuettel  <edd@debian.org>
+
+ 	* DESCRIPTION: Release 0.1.3
+
+	* src/newRcppDateExample.cpp: switch from std::cout to the new
+	Rcpp::Rcout device available since Rcpp 0.9.8
+	* src/classicRcppDateExample.cpp: idem
+
+	* DESCRIPTION: Depends on Rcpp (>= 0.9.9) for Rcpp::Rcout
+
 2011-04-08  Dirk Eddelbuettel  <edd@debian.org>
 
 	* R/RcppDataFrame.R: Added new example for Rcpp::DataFrame
 	* src/RcppDataFrame.cpp: C++ source for new example
 	* man/RcppDataFrame.Rd: Documentation
+
+	* man/RcppParams.Rd: Small change to suppres a warning
 
 2010-12-20  Dirk Eddelbuettel  <edd@debian.org>
 
