@@ -1,3 +1,11 @@
+2012-08-09  Dirk Eddelbuettel  <edd@dexter>
+
+	* src/RcppRNGs.cpp: New example of generating RNG draws
+	* R/RcppRNGs.R: New R function to call new example
+	* man/RcppRNGs.Rd: New manual page for new example
+
+	* DESCRIPTION: Changed Maintainer: to single person per CRAN Policy
+
 2011-12-28  Dirk Eddelbuettel  <edd@debian.org>
 
  	* DESCRIPTION: Release 0.1.3
