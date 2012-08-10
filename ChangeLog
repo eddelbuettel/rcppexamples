@@ -1,8 +1,12 @@
 2012-08-09  Dirk Eddelbuettel  <edd@dexter>
 
+ 	* DESCRIPTION: Release 0.1.4
+
 	* src/RcppRNGs.cpp: New example of generating RNG draws
 	* R/RcppRNGs.R: New R function to call new example
 	* man/RcppRNGs.Rd: New manual page for new example
+
+	* NEWS.Rd: Converted from NEWS
 
 	* DESCRIPTION: Changed Maintainer: to single person per CRAN Policy
 
