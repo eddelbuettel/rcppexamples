@@ -1,9 +1,8 @@
 Package: RcppExamples
 Title: Examples using Rcpp to interface R and C++ 
-Version: 0.1.4
+Version: 0.1.5
 Date: $Date$
-Author: Dirk Eddelbuettel and Romain Francois, based on code written 
- during 2005 and 2006 by Dominick Samperi 
+Author: Dirk Eddelbuettel and Romain Francois
 Maintainer: Dirk Eddelbuettel <edd@debian.org>
 Description: Examples for Seamless R and C++ integration
  The Rcpp package contains a C++ library that facilitates the integration of
@@ -11,12 +10,8 @@ Description: Examples for Seamless R and C++ integration
  .
  Note that the documentation in this package currently does not cover all the
  features in the package. It is not even close. 
- .
- It does however provide a few example based on both the (deprecated)
- `classic' API and the current Rcpp API which supercedes it. As such, it 
- can help in porting from the older API to the newer API.
-Depends: R (>= 2.11.0), Rcpp (>= 0.9.9), RcppClassic
-LinkingTo: RcppClassic, Rcpp
+Depends: R (>= 2.11.0), Rcpp (>= 0.9.9)
+LinkingTo: Rcpp
 Suggests: RUnit 
 URL: http://dirk.eddelbuettel.com/code/rcpp.html, http://romainfrancois.blog.free.fr/index.php?category/R-package/Rcpp
 License: GPL (>= 2)

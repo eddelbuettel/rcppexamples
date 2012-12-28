@@ -2,7 +2,7 @@
 ## RcppDateExample.R: Rcpp R/C++ interface class library RcppDate example
 ##
 ## Copyright (C) 2008        Dirk Eddelbuettel
-## Copyright (C) 2009 - 2010 Dirk Eddelbuettel and Romain Francois
+## Copyright (C) 2009 - 2012 Dirk Eddelbuettel and Romain Francois
 ##
 ## This file is part of Rcpp.
 ##
@@ -19,11 +19,7 @@
 ## You should have received a copy of the GNU General Public License
 ## along with Rcpp.  If not, see <http://www.gnu.org/licenses/>.
 
-RcppDateExample <- function(dv, dtv,
-                            api=c("classic", "new")) {
-
-    api <- match.arg(api)               # match to classic or new
-    fun <- paste(api, "RcppDateExample", sep="")
+RcppDateExample <- function(dv, dtv) {
 
     ## Check that params is properly set.
     if (missing(dv)) {
@@ -37,10 +33,7 @@ RcppDateExample <- function(dv, dtv,
     }
 
     ## Make the call...
-    val <- .Call(fun,                   # either new or classic
-                 dv, dtv,
-                 PACKAGE="RcppExamples")
-
+    val <- .Call("newRcppDateExample", dv, dtv, PACKAGE="RcppExamples")
     val
 }
 

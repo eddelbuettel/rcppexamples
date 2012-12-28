@@ -2,7 +2,7 @@
 ## RcppStringVectorExample.R: Rcpp R/C++ interface class library
 ##
 ## Copyright (C) 2008        Dirk Eddelbuettel
-## Copyright (C) 2009 - 2010 Dirk Eddelbuettel and Romain Francois
+## Copyright (C) 2009 - 2012 Dirk Eddelbuettel and Romain Francois
 ##
 ## This file is part of Rcpp.
 ##
@@ -19,16 +19,8 @@
 ## You should have received a copy of the GNU General Public License
 ## along with Rcpp.  If not, see <http://www.gnu.org/licenses/>.
 
-RcppStringVectorExample <- function(vec=c("Tick", "Tack", "Tock"),
-                                    api=c("classic", "new")) {
-
-    api <- match.arg(api)               # match to classic or new
-    fun <- paste(api, "RcppStringVectorExample", sep="")
-
+RcppStringVectorExample <- function(vec=c("Tick", "Tack", "Tock")) {
     ## Make the call...
-    val <- .Call(fun,                   # either new or classic
-                 vec,
-                 PACKAGE="RcppExamples")
-
+    val <- .Call("newRcppStringVectorExample", vec, PACKAGE="RcppExamples")
     val
 }

@@ -2,7 +2,7 @@
 //
 // RcppMatrixExample.cpp: Rcpp R/C++ interface class library RcppMatrix example
 //
-// Copyright (C) 2009 - 2010 Dirk Eddelbuettel and Romain Francois
+// Copyright (C) 2009 - 2012 Dirk Eddelbuettel and Romain Francois
 //
 // This file is part of Rcpp.
 //
@@ -19,7 +19,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Rcpp.  If not, see <http://www.gnu.org/licenses/>.
 
-#include <RcppClassic.h>
+#include <Rcpp.h>
 #include <cmath>
 
 /* suncc needs help to disambiguate between sqrt( float ) and sqrt(double) */

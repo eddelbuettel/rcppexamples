@@ -18,10 +18,8 @@
 ## along with Rcpp.  If not, see <http://www.gnu.org/licenses/>.
 
 RcppRNGs <- function(n) {
-
     ## Make the call...
     df <- .Call("RcppRNGs", n, PACKAGE="RcppExamples")
-
     df
 }
 

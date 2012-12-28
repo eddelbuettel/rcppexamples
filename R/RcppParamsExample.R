@@ -2,7 +2,7 @@
 ## RcppParamsExample.R: Rcpp R/C++ interface class library RcppParams example
 ##
 ## Copyright (C) 2008        Dirk Eddelbuettel
-## Copyright (C) 2009 - 2010 Dirk Eddelbuettel and Romain Francois
+## Copyright (C) 2009 - 2012 Dirk Eddelbuettel and Romain Francois
 ##
 ## This file is part of Rcpp.
 ##
@@ -19,11 +19,7 @@
 ## You should have received a copy of the GNU General Public License
 ## along with Rcpp.  If not, see <http://www.gnu.org/licenses/>.
 
-RcppParamsExample <- function(params,
-                              api=c("classic", "new")) {
-
-    api <- match.arg(api)               # match to classic or new
-    fun <- paste(api, "RcppParamsExample", sep="")
+RcppParamsExample <- function(params) {
 
     ## Check that params is properly set.
     if (missing(params)) {
@@ -35,10 +31,7 @@ RcppParamsExample <- function(params,
     }
 
     ## Make the call...
-    val <- .Call(fun,
-                 params,
-                 PACKAGE="RcppExamples")
-
+    val <- .Call("newRcppParamsExample", params, PACKAGE="RcppExamples")
     val
 }
 

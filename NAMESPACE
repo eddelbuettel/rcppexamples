@@ -1,7 +1,7 @@
 useDynLib(RcppExamples)
 
-export(RcppExample,
-       print.RcppExample,
+export(#RcppExample,
+       #print.RcppExample,
        RcppDataFrame,
        RcppDateExample,
        RcppParamsExample,
@@ -11,5 +11,4 @@ export(RcppExample,
        RcppStringVectorExample
 )
 
-#importFrom( utils, capture.output )
 

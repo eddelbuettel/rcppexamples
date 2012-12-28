@@ -2,7 +2,7 @@
 ## RcppVectorExample.R: Rcpp R/C++ interface class library RcppVector example
 ##
 ## Copyright (C) 2008        Dirk Eddelbuettel
-## Copyright (C) 2009 - 2010 Dirk Eddelbuettel and Romain Francois
+## Copyright (C) 2009 - 2012 Dirk Eddelbuettel and Romain Francois
 ##
 ## This file is part of Rcpp.
 ##
@@ -19,15 +19,9 @@
 ## You should have received a copy of the GNU General Public License
 ## along with Rcpp.  If not, see <http://www.gnu.org/licenses/>.
 
-RcppVectorExample <- function(vec=seq(1,9)^2, api=c("classic", "new")) {
-
-    api <- match.arg(api)               # match to classic or new
-    fun <- paste(api, "RcppVectorExample", sep="")
+RcppVectorExample <- function(vec=seq(1,9)^2) {
 
     ## Make the call...
-    val <- .Call(fun,                   # either new or classic
-                 vec,
-                 PACKAGE="RcppExamples")
-
+    val <- .Call("newRcppVectorExample", vec, PACKAGE="RcppExamples")
     val
 }
