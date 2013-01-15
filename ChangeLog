@@ -1,3 +1,12 @@
+2013-01-15  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version): New version 0.1.6
+
+	* DESCRIPTION (Description): Mention http://gallery.rcpp.org
+	* man/RcppExamples-package.Rd: Idem
+
+	* inst/NEWS.Rd: Moved from directory above per CRAN request
+
 2012-12-27  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version): New version 0.1.5

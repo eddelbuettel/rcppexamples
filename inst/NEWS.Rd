@@ -2,6 +2,13 @@
 \title{News for Package 'RcppExamples'}
 \newcommand{\cpkg}{\href{http://CRAN.R-project.org/package=#1}{\pkg{#1}}}
 
+\section{Changes in RcppExamples version 0.1.6 (2013-01-15)}{
+  \itemize{
+    \item Moved \code{NEWS.Rd} from top-level directory to correct
+    location \code{inst/} per CRAN maintainer suggestion
+  }
+}
+
 \section{Changes in RcppExamples version 0.1.5 (2012-12-27)}{
   \itemize{
     \item Moved all examples using \cpkg{RcppClassic} to a new package

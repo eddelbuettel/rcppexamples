@@ -1,6 +1,6 @@
 Package: RcppExamples
 Title: Examples using Rcpp to interface R and C++ 
-Version: 0.1.5
+Version: 0.1.6
 Date: $Date$
 Author: Dirk Eddelbuettel and Romain Francois
 Maintainer: Dirk Eddelbuettel <edd@debian.org>
@@ -9,7 +9,8 @@ Description: Examples for Seamless R and C++ integration
  R and C++ in various ways. This package provides some usage examples.
  .
  Note that the documentation in this package currently does not cover all the
- features in the package. It is not even close. 
+ features in the package. It is not even close. On the other hand, the site
+ http://gallery.rcpp.org is regrouping a number of examples for Rcpp.
 Depends: R (>= 2.11.0), Rcpp (>= 0.9.9)
 LinkingTo: Rcpp
 Suggests: RUnit 

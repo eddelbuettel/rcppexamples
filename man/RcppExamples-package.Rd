@@ -37,5 +37,8 @@
   additions, and became maintainer in 2008. Dirk Eddelbuettel and Romain
   Francois have been extending Rcpp since 2009.
 }
+\seealso{
+  The \url{http://gallery.rcpp.org} site regroups a number of examples.
+}
 \keyword{package}
 
