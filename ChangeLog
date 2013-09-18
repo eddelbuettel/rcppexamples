@@ -1,3 +1,9 @@
+2010-12-03  Romain Francois <romain@r-enthusiasts.com>
+
+	* R/*: Updated to reflect newer Rcpp features
+	* src/*: Idem
+	* man/*: Corresponding documentation
+
 2013-01-15  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version): New version 0.1.6
