@@ -17,7 +17,7 @@
 
   \preformatted{%
       // construct the data.frame object
-      Rcpp::DataFrame DF = Rcpp::DataFrame(Dsexp);
+      Rcpp::DataFrame DF(Dsexp);
 
       // and access each column by name
       Rcpp::IntegerVector a = DF["a"];

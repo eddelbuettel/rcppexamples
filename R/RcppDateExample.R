@@ -1,23 +1,23 @@
 
-## RcppDateExample.R: Rcpp R/C++ interface class library RcppDate example
+## RcppDateExample.R: RcppDate example
 ##
 ## Copyright (C) 2008        Dirk Eddelbuettel
-## Copyright (C) 2009 - 2012 Dirk Eddelbuettel and Romain Francois
+## Copyright (C) 2009 - 2013 Dirk Eddelbuettel and Romain Francois
 ##
-## This file is part of Rcpp.
+## This file is part of RcppExamples.
 ##
-## Rcpp is free software: you can redistribute it and/or modify it
+## RcppExamples is free software: you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
 ## the Free Software Foundation, either version 2 of the License, or
 ## (at your option) any later version.
 ##
-## Rcpp is distributed in the hope that it will be useful, but
+## RcppExamples is distributed in the hope that it will be useful, but
 ## WITHOUT ANY WARRANTY; without even the implied warranty of
 ## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ## GNU General Public License for more details.
 ##
 ## You should have received a copy of the GNU General Public License
-## along with Rcpp.  If not, see <http://www.gnu.org/licenses/>.
+## along with RcppExamples.  If not, see <http://www.gnu.org/licenses/>.
 
 RcppDateExample <- function(dv, dtv) {
 
@@ -33,7 +33,7 @@ RcppDateExample <- function(dv, dtv) {
     }
 
     ## Make the call...
-    val <- .Call("newRcppDateExample", dv, dtv, PACKAGE="RcppExamples")
+    val <- DateExample( dv, dtv )
     val
 }
 

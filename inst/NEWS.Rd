@@ -2,6 +2,13 @@
 \title{News for Package 'RcppExamples'}
 \newcommand{\cpkg}{\href{http://CRAN.R-project.org/package=#1}{\pkg{#1}}}
 
+\section{Changes in RcppExamples version 0.1.7 (future)}{
+  \itemize{
+    \item Using attributes everywhere. This package's purpose is to show 
+    our recommended way to use Rcpp. This is it. 
+  }
+}
+
 \section{Changes in RcppExamples version 0.1.6 (2013-01-15)}{
   \itemize{
     \item Moved \code{NEWS.Rd} from top-level directory to correct

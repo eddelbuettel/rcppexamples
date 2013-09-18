@@ -1,5 +1,5 @@
-\name{RcppRNGs}
-\alias{RcppRNGs}
+\name{RcppRNGsExample}
+\alias{RcppRNGsExample}
 \title{Rcpp RNGs example}
 \description{
   Rcpp sugar provides numerous p/q/d/r functions for numerous distributions.
@@ -38,7 +38,7 @@
 \author{Dirk Eddelbuettel and Romain Francois}
 \examples{
   set.seed(42)
-  X <- RcppRNGs(10)
+  X <- RcppRNGsExample(10L)
   set.seed(42)
   Y <- data.frame(rnorm=rnorm(10),rt=rt(10,1),rpois=rpois(10,1))
   all.equal(X,Y)
