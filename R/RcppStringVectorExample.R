@@ -21,6 +21,6 @@
 
 RcppStringVectorExample <- function(vec=c("Tick", "Tack", "Tock")) {
     ## Make the call...
-    val <- .Call("newRcppStringVectorExample", vec, PACKAGE="RcppExamples")
+    val <- StringVectorExample( vec )
     val
 }

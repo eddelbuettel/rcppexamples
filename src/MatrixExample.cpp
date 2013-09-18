@@ -28,7 +28,7 @@ inline static double sqrt_double( double x ){ return ::sqrt( x ) ; }
 using namespace Rcpp; 
 
 // [[Rcpp::export]]
-List newRcppMatrixExample(NumericMatrix orig) {
+List MatrixExample(NumericMatrix orig) {
     NumericMatrix mat(orig.nrow(), orig.ncol());	
 
     // we could query size via
@@ -43,6 +43,4 @@ List newRcppMatrixExample(NumericMatrix orig) {
     );
     return result ;
 }
-
-
 

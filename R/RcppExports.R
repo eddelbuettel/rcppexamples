@@ -13,8 +13,8 @@ ListExamples <- function(rparam) {
     .Call('RcppExamples_ListExamples', PACKAGE = 'RcppExamples', rparam)
 }
 
-newRcppMatrixExample <- function(orig) {
-    .Call('RcppExamples_newRcppMatrixExample', PACKAGE = 'RcppExamples', orig)
+MatrixExample <- function(orig) {
+    .Call('RcppExamples_MatrixExample', PACKAGE = 'RcppExamples', orig)
 }
 
 NumericVectorExample <- function(orig) {
@@ -23,5 +23,9 @@ NumericVectorExample <- function(orig) {
 
 RcppRNGs <- function(n) {
     .Call('RcppExamples_RcppRNGs', PACKAGE = 'RcppExamples', n)
+}
+
+StringVectorExample <- function(orig) {
+    .Call('RcppExamples_StringVectorExample', PACKAGE = 'RcppExamples', orig)
 }
 

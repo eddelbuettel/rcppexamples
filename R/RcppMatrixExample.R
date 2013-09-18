@@ -21,6 +21,6 @@
 
 RcppMatrixExample <- function(mat=matrix(seq(1,9)^2, ncol=3)) {
     ## Make the call...
-    val <- .Call("newRcppMatrixExample", mat, PACKAGE="RcppExamples")
+    val <- MatrixExample( mat )
     val
 }

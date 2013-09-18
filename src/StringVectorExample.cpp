@@ -20,21 +20,19 @@
 // along with RcppExamples.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <Rcpp.h>
+using namespace Rcpp ;
 
-RcppExport SEXP newRcppStringVectorExample(SEXP strvec) {
-BEGIN_RCPP
-
-    Rcpp::StringVector orig(strvec);		// creates Rcpp string vector from SEXP
-    Rcpp::StringVector vec(orig.size());	
+// [[Rcpp::export]]
+List StringVectorExample(StringVector orig) {
+    StringVector vec(orig.size());	
 
     std::transform(orig.begin(), orig.end(), vec.begin(), 
-		   Rcpp::make_string_transformer(tolower));
+		   make_string_transformer(tolower));
 
-    return Rcpp::List::create(Rcpp::Named( "result" )   = vec,
-			      Rcpp::Named( "original" ) = orig);
-
-END_RCPP
+    List result = List::create(
+        Named( "result" )   = vec,
+        Named( "original" ) = orig
+    );
+    return result ;
 }
-
-
 

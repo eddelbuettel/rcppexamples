@@ -51,15 +51,15 @@ BEGIN_RCPP
     return __sexp_result;
 END_RCPP
 }
-// newRcppMatrixExample
-List newRcppMatrixExample(NumericMatrix orig);
-RcppExport SEXP RcppExamples_newRcppMatrixExample(SEXP origSEXP) {
+// MatrixExample
+List MatrixExample(NumericMatrix orig);
+RcppExport SEXP RcppExamples_MatrixExample(SEXP origSEXP) {
 BEGIN_RCPP
     SEXP __sexp_result;
     {
         Rcpp::RNGScope __rngScope;
         Rcpp::traits::input_parameter< NumericMatrix >::type orig(origSEXP );
-        List __result = newRcppMatrixExample(orig);
+        List __result = MatrixExample(orig);
         PROTECT(__sexp_result = Rcpp::wrap(__result));
     }
     UNPROTECT(1);
@@ -90,6 +90,21 @@ BEGIN_RCPP
         Rcpp::RNGScope __rngScope;
         Rcpp::traits::input_parameter< int >::type n(nSEXP );
         DataFrame __result = RcppRNGs(n);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
+// StringVectorExample
+List StringVectorExample(StringVector orig);
+RcppExport SEXP RcppExamples_StringVectorExample(SEXP origSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< StringVector >::type orig(origSEXP );
+        List __result = StringVectorExample(orig);
         PROTECT(__sexp_result = Rcpp::wrap(__result));
     }
     UNPROTECT(1);
