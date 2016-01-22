@@ -1,3 +1,8 @@
+2016-01-22  Dirk Eddelbuettel  <edd@debian.org>
+
+	* .travis.yml: Added to support Travis CI
+	* .Rbuildignore: Added
+
 2013-09-17  Romain Francois <romain@r-enthusiasts.com>
 
 	* R/*: Updated to reflect newer Rcpp features
