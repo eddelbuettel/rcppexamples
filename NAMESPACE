@@ -9,4 +9,5 @@ export(RcppDataFrame,
        RcppStringVectorExample
 )
 
+importFrom(Rcpp, evalCpp)
 
