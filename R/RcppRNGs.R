@@ -1,6 +1,6 @@
 ## RcppRNGs.R: RNGs example
 ##
-## Copyright (C) 2012 - 2013        Dirk Eddelbuettel and Romain Francois
+## Copyright (C) 2012 - 2016  Dirk Eddelbuettel and Romain Francois
 ##
 ## This file is part of RcppExamples.
 ##
@@ -18,8 +18,7 @@
 ## along with RcppExamples.  If not, see <http://www.gnu.org/licenses/>.
 
 RcppRNGsExample <- function(n) {
-    ## Make the call...
-    df <- RcppRNGs( n )
+    df <- RcppRNGs(n)     		# make the call...
     df
 }
 

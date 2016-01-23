@@ -1,8 +1,8 @@
 
 ## RcppMatrixExample.R: RcppMatrix example
 ##
-## Copyright (C) 2008        Dirk Eddelbuettel
-## Copyright (C) 2009 - 2013 Dirk Eddelbuettel and Romain Francois
+## Copyright (C) 2008         Dirk Eddelbuettel
+## Copyright (C) 2009 - 2016  Dirk Eddelbuettel and Romain Francois
 ##
 ## This file is part of RcppExamples.
 ##
@@ -21,6 +21,6 @@
 
 RcppMatrixExample <- function(mat=matrix(seq(1,9)^2, ncol=3)) {
     ## Make the call...
-    val <- MatrixExample( mat )
+    val <- MatrixExample(mat)
     val
 }

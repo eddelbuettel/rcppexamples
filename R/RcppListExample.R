@@ -1,8 +1,8 @@
 
 ## RcppListExample.R: RcppParams example
 ##
-## Copyright (C) 2008        Dirk Eddelbuettel
-## Copyright (C) 2009 - 2013 Dirk Eddelbuettel and Romain Francois
+## Copyright (C) 2008         Dirk Eddelbuettel
+## Copyright (C) 2009 - 2016  Dirk Eddelbuettel and Romain Francois
 ##
 ## This file is part of RcppExamples.
 ##
@@ -31,7 +31,7 @@ RcppListExample <- function(params) {
     }
 
     ## Make the call...
-    val <- ListExamples( params)
+    val <- ListExamples(params)
     val
 }
 
