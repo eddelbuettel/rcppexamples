@@ -11,7 +11,7 @@
     
     \preformatted{%
         // [[Rcpp::export]]
-        List DateExample(DateVector dv, DatetimeVector dtv) {
+        List DateExample(DateVector & dv, DatetimeVector & dtv) {
             Function formatDate("format.Date");
             Function formatDatetime("format.POSIXct");
             
@@ -26,13 +26,9 @@
                 dtv[i] = dtv[i] + 0.250;    // shift 250 millisec
             }
             
-            // Build result set to be returned as a list to R.
-            List result = List::create(
-                Named("date",   dv),
-                Named("datetime", dtv)
-                );
-            
-            return result ;
+           // Build result set to be returned as a list to R.
+           return List::create(Named("date",   dv),
+                               Named("datetime", dtv));
         }
     
     }

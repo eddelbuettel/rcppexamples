@@ -3,7 +3,7 @@
 \title{Rcpp::DataFrame example for Rcpp}
 \description{
   A \code{DataFrame} can be passed C++ and can be instantiated as a
-  corresponding C++ object using the  Rcpp API. 
+  corresponding C++ object using the Rcpp API. 
 
   This example shows (in the corresponding C++ code) how to access,
   modify and create a data frame.
@@ -13,12 +13,10 @@
   the respective header file.
 
   The C++ source file corresponding to the this function does the
-  following (inside of a \code{try/catch} block):
+  following:
 
   \preformatted{%
-      // construct the data.frame object
-      Rcpp::DataFrame DF(Dsexp);
-
+      // we receive a 'DF' data.frame object
       // and access each column by name
       Rcpp::IntegerVector a = DF["a"];
       Rcpp::CharacterVector b = DF["b"];

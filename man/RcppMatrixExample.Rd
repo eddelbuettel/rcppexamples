@@ -12,13 +12,13 @@
         #include <Rcpp.h>
         #include <cmath>
         
-        /* suncc needs help to disambiguate between sqrt( float ) and sqrt(double) */
-        inline static double sqrt_double( double x ){ return ::sqrt( x ) ; }
+        // suncc needs help to disambiguate between sqrt( float ) and sqrt(double) 
+        inline static double sqrt_double(double x) { return ::sqrt(x); }
         
         using namespace Rcpp; 
         
         // [[Rcpp::export]]
-        List MatrixExample(NumericMatrix orig) {
+        List MatrixExample(const NumericMatrix & orig) {
             NumericMatrix mat(orig.nrow(), orig.ncol());	
         
             // we could query size via
@@ -26,12 +26,9 @@
             // and loop over the elements, but using the STL is so much nicer
             // so we use a STL transform() algorithm on each element
             std::transform(orig.begin(), orig.end(), mat.begin(), sqrt_double );
-        
-            List result = List::create(
-                Named( "result" ) = mat, 
-                Named( "original" ) = orig
-            );
-            return result ;
+
+            return List::create(Named("result") = mat, 
+                                Named("original") = orig);
         }
     
     }
@@ -46,8 +43,8 @@
 }
 \examples{
 
-M <- matrix( (1:16)^2, 4 )
-RcppMatrixExample( M )
+M <- matrix((1:16)^2, 4)
+RcppMatrixExample(M)
 
 }
 \keyword{programming}

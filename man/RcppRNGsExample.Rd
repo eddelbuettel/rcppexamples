@@ -12,24 +12,19 @@
   documentation for Rcpp sugar.
 
   The C++ source file corresponding to the this function does the
-  following (inside of a \code{try/catch} block):
+  following:
 
   \preformatted{%
-        Rcpp::RNGScope scope;         		// needed when RNGs are drawn
-
-        int n = Rcpp::as<int>(ns); 		// length vector 
-        Rcpp::NumericVector rn = Rcpp::rnorm(n);
-        Rcpp::NumericVector rt = Rcpp::rt(n, 1.0);
-        Rcpp::NumericVector rp = Rcpp::rpois(n, 1.0);
+        int n;  	// length passed in from R
+    
+        NumericVector rn = rnorm(n);
+        NumericVector rt = rt(n, 1.0);
+        NumericVector rp = rpois(n, 1.0);
 
         // create a new data frame to return drawns
-        Rcpp::DataFrame NDF = 
-            Rcpp::DataFrame::create(Rcpp::Named("rnorm") =rn,
-                                    Rcpp::Named("rt")    =rt,
-                                    Rcpp::Named("rpois") =rp);
-
-        // and return old and new in list
-        return(NDF);
+       return DataFrame::create(Named("rnorm") = xn,
+                                Named("rt")    = xt,
+                                Named("rpois") = xp);
   }
 
   As shown in the example section, provided the seed is reset, the exact

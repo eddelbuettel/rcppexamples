@@ -10,22 +10,11 @@
 
   It can also serve as a working template to create packages that use
   \pkg{Rcpp} to interface C++ code or libraries.
-
-  A sibbling package \pkg{RcppClassicExamples} provides some examples
-  for the deprecated older API still being made available via the
-  \pkg{RcppClassic} package. New development should use \pkg{Rcpp}
-  instead.    
 }
 \details{
   The \pkg{Rcpp} package provides a number of C++ classes that ease
   access to C++ from R. This comprises both passing parameters to
   functions, as well as returning results back from C++ to R.
-
-  Two APIs are supported. The first is an older API which was first
-  introduced mostly in 2006, extended in 2008 and deprecated in
-  2009. This interface is used by a few other packages and will be
-  supported going forward, but not extended.  A second and newer API
-  was started in 2009 offers more functionality: \pkg{Rcpp}
 
   The \pkg{RcppExamples} package provides some simple examples for use
   of \pkg{Rcpp}. At this point the documentation is not complete in the

@@ -14,17 +14,14 @@
         using namespace Rcpp ;
         
         // [[Rcpp::export]]
-        List StringVectorExample(StringVector orig) {
+        List StringVectorExample(const StringVector & orig) {
             StringVector vec(orig.size());	
         
             std::transform(orig.begin(), orig.end(), vec.begin(), 
         		   make_string_transformer(tolower));
         
-            List result = List::create(
-                Named( "result" )   = vec,
-                Named( "original" ) = orig
-            );
-            return result ;
+            return List::create(Named("result")   = vec,
+                                Named("original") = orig);
         }
 
     }
@@ -38,9 +35,7 @@
   Francois have been extending Rcpp since 2009.
 }
 \examples{
-
-RcppStringVectorExample( c("Tick", "Tack", "Tock") )
-
+  RcppStringVectorExample(c("Tick", "Tack", "Tock"))
 }
 \keyword{programming}
 \keyword{interface}
