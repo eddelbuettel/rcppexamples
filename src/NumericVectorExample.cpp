@@ -1,10 +1,10 @@
-// -*- mode: C++; c-indent-level: 4; c-basic-offset: 4; tab-width: 8 -*-
+// -*- mode: C++; c-indent-level: 4; c-basic-offset: 4; indent-tabs-mode: nil; -*-
 //
 // NumericVectorExample.cpp: RcppVector example
 //
-// Copyright (C) 2005 - 2006 Dominick Samperi
-// Copyright (C) 2008        Dirk Eddelbuettel
-// Copyright (C) 2009 - 2013 Dirk Eddelbuettel and Romain Francois
+// Copyright (C) 2005 - 2006  Dominick Samperi
+// Copyright (C) 2008         Dirk Eddelbuettel
+// Copyright (C) 2009 - 2016  Dirk Eddelbuettel and Romain Francois
 //
 // This file is part of RcppExamples.
 //
@@ -26,24 +26,21 @@
 
 using namespace Rcpp; 
 
-/* suncc needs help to disambiguate between sqrt( float ) and sqrt(double) */
-inline static double sqrt_double( double x ){ return ::sqrt( x ) ; }
+// suncc needs help to disambiguate between sqrt( float ) and sqrt(double) 
+inline static double sqrt_double( double x ){ return ::sqrt( x ); }
 
 // [[Rcpp::export]]
-List NumericVectorExample(NumericVector orig) {
+List NumericVectorExample(const NumericVector & orig) {
     NumericVector vec(orig.size());		// create a target vector of the same size
     
     // we could query size via
     //   int n = vec.size();
     // and loop over the vector, but using the STL is so much nicer
     // so we use a STL transform() algorithm on each element
-    std::transform(orig.begin(), orig.end(), vec.begin(), sqrt_double );
+    std::transform(orig.begin(), orig.end(), vec.begin(), sqrt_double);
 
-    List result = List::create(
-        Named( "result" ) = vec, 
-        Named( "original" ) = orig
-    ) ;
-    return result ;
+    return List::create(Named("result") = vec, 
+                        Named("original") = orig);
 }
 
 

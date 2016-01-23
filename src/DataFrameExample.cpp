@@ -1,8 +1,8 @@
-// -*- mode: C++; c-indent-level: 4; c-basic-offset: 4; tab-width: 8 -*-
+// -*- mode: C++; c-indent-level: 4; c-basic-offset: 4; indent-tabs-mode: nil; -*-
 //
 // DataFrame.cpp: data frame example
 //
-// Copyright (C) 2011 - 2013        Dirk Eddelbuettel and Romain Francois
+// Copyright (C) 2011 - 2016  Dirk Eddelbuettel and Romain Francois
 //
 // This file is part of RcppExamples.
 //
@@ -20,10 +20,10 @@
 // along with RcppExamples.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <Rcpp.h>
-using namespace Rcpp ;
+using namespace Rcpp;
 
 // [[Rcpp::export]]
-List DataFrameExample(DataFrame DF) {
+List DataFrameExample(const DataFrame & DF) {
 
     // access each column by name
     IntegerVector a = DF["a"];
@@ -36,19 +36,13 @@ List DataFrameExample(DataFrame DF) {
     c[0] = c[0] + 7; // move up a week
     
     // create a new data frame
-    DataFrame NDF = DataFrame::create(
-        Named("a")=a,
-        Named("b")=b,
-        Named("c")=c
-    );
+    DataFrame NDF = DataFrame::create(Named("a")=a,
+                                      Named("b")=b,
+                                      Named("c")=c);
     
     // and return old and new in list
-    List result = List::create(
-        Named("origDataFrame")=DF,
-        Named("newDataFrame")=NDF
-    );
-    
-    return result ;
+    return List::create(Named("origDataFrame") = DF,
+                        Named("newDataFrame") = NDF);
 }
 
 

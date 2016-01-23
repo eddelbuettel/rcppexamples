@@ -1,5 +1,8 @@
 ## Emacs please make this a -*- mode: Makefile; -*-
 ##
-## Use the R_HOME indirection to support installations of multiple R version
-PKG_LIBS = `$(R_HOME)/bin/Rscript -e "Rcpp:::LdFlags()" ` 
+## We could set particular variables here. Examples are
+##    PKG_LIBS      for external libraries
+##    PKG_CXXFLAGS  for additional headers or defines
+##    CXX_STD       to select C++11 via 'CXX11'
+## But for standard builds without external dependencies, nothing is needed
 

@@ -6,108 +6,80 @@
 using namespace Rcpp;
 
 // DataFrameExample
-List DataFrameExample(DataFrame DF);
+List DataFrameExample(const DataFrame& DF);
 RcppExport SEXP RcppExamples_DataFrameExample(SEXP DFSEXP) {
 BEGIN_RCPP
-    SEXP __sexp_result;
-    {
-        Rcpp::RNGScope __rngScope;
-        Rcpp::traits::input_parameter< DataFrame >::type DF(DFSEXP );
-        List __result = DataFrameExample(DF);
-        PROTECT(__sexp_result = Rcpp::wrap(__result));
-    }
-    UNPROTECT(1);
-    return __sexp_result;
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< const DataFrame& >::type DF(DFSEXP);
+    __result = Rcpp::wrap(DataFrameExample(DF));
+    return __result;
 END_RCPP
 }
 // DateExample
-List DateExample(DateVector dv, DatetimeVector dtv);
+List DateExample(DateVector& dv, DatetimeVector& dtv);
 RcppExport SEXP RcppExamples_DateExample(SEXP dvSEXP, SEXP dtvSEXP) {
 BEGIN_RCPP
-    SEXP __sexp_result;
-    {
-        Rcpp::RNGScope __rngScope;
-        Rcpp::traits::input_parameter< DateVector >::type dv(dvSEXP );
-        Rcpp::traits::input_parameter< DatetimeVector >::type dtv(dtvSEXP );
-        List __result = DateExample(dv, dtv);
-        PROTECT(__sexp_result = Rcpp::wrap(__result));
-    }
-    UNPROTECT(1);
-    return __sexp_result;
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< DateVector& >::type dv(dvSEXP);
+    Rcpp::traits::input_parameter< DatetimeVector& >::type dtv(dtvSEXP);
+    __result = Rcpp::wrap(DateExample(dv, dtv));
+    return __result;
 END_RCPP
 }
 // ListExamples
-List ListExamples(List rparam);
+List ListExamples(const List& rparam);
 RcppExport SEXP RcppExamples_ListExamples(SEXP rparamSEXP) {
 BEGIN_RCPP
-    SEXP __sexp_result;
-    {
-        Rcpp::RNGScope __rngScope;
-        Rcpp::traits::input_parameter< List >::type rparam(rparamSEXP );
-        List __result = ListExamples(rparam);
-        PROTECT(__sexp_result = Rcpp::wrap(__result));
-    }
-    UNPROTECT(1);
-    return __sexp_result;
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< const List& >::type rparam(rparamSEXP);
+    __result = Rcpp::wrap(ListExamples(rparam));
+    return __result;
 END_RCPP
 }
 // MatrixExample
-List MatrixExample(NumericMatrix orig);
+List MatrixExample(const NumericMatrix& orig);
 RcppExport SEXP RcppExamples_MatrixExample(SEXP origSEXP) {
 BEGIN_RCPP
-    SEXP __sexp_result;
-    {
-        Rcpp::RNGScope __rngScope;
-        Rcpp::traits::input_parameter< NumericMatrix >::type orig(origSEXP );
-        List __result = MatrixExample(orig);
-        PROTECT(__sexp_result = Rcpp::wrap(__result));
-    }
-    UNPROTECT(1);
-    return __sexp_result;
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< const NumericMatrix& >::type orig(origSEXP);
+    __result = Rcpp::wrap(MatrixExample(orig));
+    return __result;
 END_RCPP
 }
 // NumericVectorExample
-List NumericVectorExample(NumericVector orig);
+List NumericVectorExample(const NumericVector& orig);
 RcppExport SEXP RcppExamples_NumericVectorExample(SEXP origSEXP) {
 BEGIN_RCPP
-    SEXP __sexp_result;
-    {
-        Rcpp::RNGScope __rngScope;
-        Rcpp::traits::input_parameter< NumericVector >::type orig(origSEXP );
-        List __result = NumericVectorExample(orig);
-        PROTECT(__sexp_result = Rcpp::wrap(__result));
-    }
-    UNPROTECT(1);
-    return __sexp_result;
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< const NumericVector& >::type orig(origSEXP);
+    __result = Rcpp::wrap(NumericVectorExample(orig));
+    return __result;
 END_RCPP
 }
 // RcppRNGs
-DataFrame RcppRNGs(int n);
+DataFrame RcppRNGs(const int n);
 RcppExport SEXP RcppExamples_RcppRNGs(SEXP nSEXP) {
 BEGIN_RCPP
-    SEXP __sexp_result;
-    {
-        Rcpp::RNGScope __rngScope;
-        Rcpp::traits::input_parameter< int >::type n(nSEXP );
-        DataFrame __result = RcppRNGs(n);
-        PROTECT(__sexp_result = Rcpp::wrap(__result));
-    }
-    UNPROTECT(1);
-    return __sexp_result;
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< const int >::type n(nSEXP);
+    __result = Rcpp::wrap(RcppRNGs(n));
+    return __result;
 END_RCPP
 }
 // StringVectorExample
-List StringVectorExample(StringVector orig);
+List StringVectorExample(const StringVector& orig);
 RcppExport SEXP RcppExamples_StringVectorExample(SEXP origSEXP) {
 BEGIN_RCPP
-    SEXP __sexp_result;
-    {
-        Rcpp::RNGScope __rngScope;
-        Rcpp::traits::input_parameter< StringVector >::type orig(origSEXP );
-        List __result = StringVectorExample(orig);
-        PROTECT(__sexp_result = Rcpp::wrap(__result));
-    }
-    UNPROTECT(1);
-    return __sexp_result;
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< const StringVector& >::type orig(origSEXP);
+    __result = Rcpp::wrap(StringVectorExample(orig));
+    return __result;
 END_RCPP
 }

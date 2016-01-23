@@ -1,8 +1,8 @@
-// -*- mode: C++; c-indent-level: 4; c-basic-offset: 4; tab-width: 8 -*-
+// -*- mode: C++; c-indent-level: 4; c-basic-offset: 4; indent-tabs-mode: nil; -*-
 //
 // RcppStringVectorExample.cpp: 
 //
-// Copyright (C) 2009 - 2013 Dirk Eddelbuettel and Romain Francois
+// Copyright (C) 2009 - 2016  Dirk Eddelbuettel and Romain Francois
 //
 // This file is part of RcppExamples.
 //
@@ -20,19 +20,16 @@
 // along with RcppExamples.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <Rcpp.h>
-using namespace Rcpp ;
+using namespace Rcpp;
 
 // [[Rcpp::export]]
-List StringVectorExample(StringVector orig) {
+List StringVectorExample(const StringVector & orig) {
     StringVector vec(orig.size());	
 
     std::transform(orig.begin(), orig.end(), vec.begin(), 
 		   make_string_transformer(tolower));
 
-    List result = List::create(
-        Named( "result" )   = vec,
-        Named( "original" ) = orig
-    );
-    return result ;
+    return List::create(Named("result")   = vec,
+                        Named("original") = orig);
 }
 

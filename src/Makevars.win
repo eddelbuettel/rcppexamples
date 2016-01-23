@@ -1,5 +1,8 @@
-
-## This assume that we can call Rscript to ask Rcpp about its locations
-## Use the R_HOME indirection to support installations of multiple R version
-PKG_LIBS = $(shell "${R_HOME}/bin${R_ARCH_BIN}/Rscript.exe" -e "Rcpp:::LdFlags()")
+## Emacs please make this a -*- mode: Makefile; -*-
+##
+## We could set particular variables here. Examples are
+##    PKG_LIBS      for external libraries
+##    PKG_CXXFLAGS  for additional headers or defines
+##    CXX_STD       to select C++11 via 'CXX11'
+## But for standard builds without external dependencies, nothing is needed
 

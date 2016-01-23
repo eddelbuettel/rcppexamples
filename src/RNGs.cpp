@@ -2,7 +2,7 @@
 //
 // RcppRNGs.cpp: RNG example
 //
-// Copyright (C) 2012 - 2013        Dirk Eddelbuettel and Romain Francois
+// Copyright (C) 2012 - 2016  Dirk Eddelbuettel and Romain Francois
 //
 // This file is part of RcppExamples.
 //
@@ -20,22 +20,17 @@
 // along with RcppExamples.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <Rcpp.h>
-using namespace Rcpp ;
+using namespace Rcpp;
 
 // [[Rcpp::export]]
-DataFrame RcppRNGs(int n) {
+DataFrame RcppRNGs(const int n) {
     NumericVector xn = rnorm(n);
     NumericVector xt = rt(n, 1.0);
     NumericVector xp = rpois(n, 1.0);
     
     // create a new data frame to return drawns
-    DataFrame NDF = DataFrame::create(
-        Named("rnorm") = xn,
-        Named("rt")    = xt,
-        Named("rpois") = xp
-    );
-    
-    // and return old and new in list
-    return(NDF);
+    return DataFrame::create(Named("rnorm") = xn,
+                             Named("rt")    = xt,
+                             Named("rpois") = xp);
 }
 
