@@ -37,7 +37,7 @@
     }
 }
 \references{
-  \emph{Writing R Extensions}, available at \url{http:www.r-project.org}.
+  \emph{Writing R Extensions}, available at \url{https://www.r-project.org}.
 }
 \author{Dominick Samperi wrote the initial versions of Rcpp (and
   RcppTemplate) during 2005 and 2006.  Dirk Eddelbuettel made some
