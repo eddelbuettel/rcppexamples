@@ -2,10 +2,16 @@
 \title{News for Package 'RcppExamples'}
 \newcommand{\cpkg}{\href{http://CRAN.R-project.org/package=#1}{\pkg{#1}}}
 
-\section{Changes in RcppExamples version 0.1.7 (future)}{
+\section{Changes in RcppExamples version 0.1.7 (2016-01-23)}{
   \itemize{
-    \item Using attributes everywhere. This package's purpose is to show 
-    our recommended way to use Rcpp. This is it. 
+    \item All examples were updated to use \emph{Rcpp Attributes}
+    and (where possible) use \code{const &} interfaces.  
+    \item Updated \code{DESCRIPTION} for current \code{R CMD check}
+    standards
+    \item The \cpkg{Rcpp} package is now imported rather than depended
+    upon. 
+    \item Added \code{README.md} as well as \code{.travis.yml}.
+    \item Also updated and refreshed all manual pages and R files.
   }
 }
 

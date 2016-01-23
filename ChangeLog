@@ -1,14 +1,17 @@
 2016-01-23  Dirk Eddelbuettel  <edd@debian.org>
 
+	* DESCRIPTION (Version): New version 0.1.7
+
 	* DESCRIPTION: Refreshed with minor edits
 
 	* DESCRIPTION: Import: rather than Depends: on Rcpp
 	* NAMESPACE: Idem
 
-	* man/RcppDateExample.Rd: Correct URL
-	* man/RcppListExample.Rd: Idem
-	* man/RcppMatrixExample.Rd: Idem
-	* man/RcppStringVectorExample.Rd: Idem
+	* README.md: Added a short README
+
+	* src/*: Edited and updated adding 'const &' in several interfaces
+	* R/*: Edited and Updated
+	* man/*: Edited and Updated with a few minor corrections
 
 2016-01-22  Dirk Eddelbuettel  <edd@debian.org>
 

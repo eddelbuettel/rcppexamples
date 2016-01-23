@@ -1,6 +1,6 @@
 Package: RcppExamples
 Title: Examples using 'Rcpp' to Interface R and C++ 
-Version: 0.1.6.2
+Version: 0.1.7
 Date: 2016-01-23
 Author: Dirk Eddelbuettel and Romain Francois
 Maintainer: Dirk Eddelbuettel <edd@debian.org>
