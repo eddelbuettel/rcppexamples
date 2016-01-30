@@ -1,3 +1,7 @@
+2016-01-30  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (BugReports): Added BugReports: URL
+
 2016-01-23  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version): New version 0.1.7

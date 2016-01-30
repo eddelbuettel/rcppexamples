@@ -16,4 +16,5 @@ Imports: Rcpp
 LinkingTo: Rcpp
 Suggests: RUnit 
 URL: http://dirk.eddelbuettel.com/code/rcpp.html
+BugReports: https://github.com/eddelbuettel/rcppexamples/issues
 License: GPL (>= 2)
