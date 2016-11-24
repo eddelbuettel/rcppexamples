@@ -12,7 +12,7 @@ Description: Examples for Seamless R and C++ integration
  features in the package. It is not even close. On the other hand, the site
  <http://gallery.rcpp.org> is regrouping a large number of examples for 'Rcpp'.
 Depends: R (>= 2.15.1)
-Imports: Rcpp (>= 0.12.8)
+Imports: Rcpp
 LinkingTo: Rcpp
 Suggests: RUnit 
 URL: http://dirk.eddelbuettel.com/code/rcpp.html

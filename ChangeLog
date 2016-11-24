@@ -4,7 +4,6 @@
 
 	* src/DateExample.cpp (DateExample): Rewritten taking advantage of
 	Rcpp 0.12.8 features and 'new' date(time) vectors
-	* DESCRIPTION (Import): Added (>= 0.12.8) to Import of Rcpp
 
 	* src/Makevars (PKG_CXXFLAGS): Turning of new datetime vectors via
 	#define while they are still being phased in by Rcpp

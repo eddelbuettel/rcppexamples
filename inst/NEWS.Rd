@@ -5,7 +5,8 @@
   \itemize{
     \item Updated DateExample to show vector addition available under
     Rcpp 0.12.8 when the (currently still phased in and optional) new
-    Date(time) classes are used via the define in src/Makevars{,.win}
+    Date(time) classes are used via the define in src/Makevars{,.win};
+    with fallback code for older versions 
     \item Other minor edits to DESCRIPTION and README.md
   }
 }
