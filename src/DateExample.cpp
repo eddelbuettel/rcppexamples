@@ -29,11 +29,11 @@ List DateExample(DateVector & dv, DatetimeVector & dtv) {
 
     Rcout << "\nIn C++, seeing the following date values before/after adding a week:\n";
     print(formatDate(dv));
-#if RCPP_VERSION >= RcppVersion(0,12,8)
+#if RCPP_VERSION >= Rcpp_Version(0,12,8)
     dv = dv + 7;		// shift a week
 #else
     // fallback for older Rcpp versions
-    for (size_t i=0; i<dv.size(); i++) {
+    for (int i=0; i<dv.size(); i++) {
         dv[i] = dv[i] + 7;
     }
 #endif
@@ -46,7 +46,7 @@ List DateExample(DateVector & dv, DatetimeVector & dtv) {
     dtv = dtv + 0.250;          // shift 250 millisec
 #else
     // fallback
-    for (size_t i=0; i<dtv.size(); i++) {
+    for (int i=0; i<dtv.size(); i++) {
         dtv[i] = dtv[i] + 0.250;
     }
 #endif
