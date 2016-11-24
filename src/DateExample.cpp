@@ -29,7 +29,7 @@ List DateExample(DateVector & dv, DatetimeVector & dtv) {
 
     Rcout << "\nIn C++, seeing the following date values before/after adding a week:\n";
     print(formatDate(dv));
-#if RCPP_VERSION >= RcppDevVersion(0,12,8)
+#if RCPP_VERSION >= RcppVersion(0,12,8)
     dv = dv + 7;		// shift a week
 #else
     // fallback for older Rcpp versions
