@@ -1,6 +1,14 @@
 \name{NEWS}
-\title{News for Package 'RcppExamples'}
-\newcommand{\cpkg}{\href{http://CRAN.R-project.org/package=#1}{\pkg{#1}}}
+\title{News for Package \pkg{RcppExamples}}
+
+\section{Changes in RcppExamples version 0.1.8 (2016-11-24)}{
+  \itemize{
+    \item Updated DateExample to show vector addition available under
+    Rcpp 0.12.8 when the (currently still phased in and optional) new
+    Date(time) classes are used via the define in src/Makevars{,.win}
+    \item Other minor edits to DESCRIPTION and README.md
+  }
+}
 
 \section{Changes in RcppExamples version 0.1.7 (2016-01-23)}{
   \itemize{
@@ -8,7 +16,7 @@
     and (where possible) use \code{const &} interfaces.  
     \item Updated \code{DESCRIPTION} for current \code{R CMD check}
     standards
-    \item The \cpkg{Rcpp} package is now imported rather than depended
+    \item The \CRANpkg{Rcpp} package is now imported rather than depended
     upon. 
     \item Added \code{README.md} as well as \code{.travis.yml}.
     \item Also updated and refreshed all manual pages and R files.
@@ -24,8 +32,8 @@
 
 \section{Changes in RcppExamples version 0.1.5 (2012-12-27)}{
   \itemize{
-    \item Moved all examples using \cpkg{RcppClassic} to a new package
-      \cpkg{RcppClassicExamples}
+    \item Moved all examples using \CRANpkg{RcppClassic} to a new package
+      \CRANpkg{RcppClassicExamples}
     \item Various minor small updates
   }
 }

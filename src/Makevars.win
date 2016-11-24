@@ -6,3 +6,5 @@
 ##    CXX_STD       to select C++11 via 'CXX11'
 ## But for standard builds without external dependencies, nothing is needed
 
+PKG_CXXFLAGS = -DRCPP_NEW_DATE_DATETIME_VECTORS
+

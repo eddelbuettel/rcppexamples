@@ -32,8 +32,14 @@ RcppDateExample <- function(dv, dtv) {
         dtv <- Sys.time() + (-2:2)*0.5
     }
 
+    optdig <- getOption("digits.secs")
+    options(digits.secs=3)
+
     ## Make the call...
     val <- DateExample(dv, dtv)
+
+    options(digits.secs=optdig)
+
     val
 }
 
