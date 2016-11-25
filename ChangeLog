@@ -1,3 +1,7 @@
+2016-11-25  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (URL): Correct package URL
+
 2016-11-24  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Release 0.1.8
