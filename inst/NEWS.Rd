@@ -1,6 +1,12 @@
 \name{NEWS}
 \title{News for Package \pkg{RcppExamples}}
 
+\section{Changes in RcppExamples version 0.1.9 (201x-yy-zz)}{
+  \itemize{
+    \item Extended DateExample to use more new Rcpp features
+  }
+}
+
 \section{Changes in RcppExamples version 0.1.8 (2016-11-24)}{
   \itemize{
     \item Updated DateExample to show vector addition available under

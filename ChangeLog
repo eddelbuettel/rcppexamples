@@ -1,3 +1,8 @@
+2016-12-02  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/DateExample.cpp (DateExample): Examples take more advantage
+	of 'new' Rcpp Date(time) classe; conditional code for old version
+
 2016-11-25  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (URL): Correct package URL
