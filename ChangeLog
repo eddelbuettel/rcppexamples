@@ -1,3 +1,11 @@
+2017-01-02  Dirk Eddelbuettel  <edd@debian.org>
+
+	* R/RcppDataFrame.R: (RcppDataFrame): Print but return invisibly
+
+2017-01-02  Xikun Han  <1159225156@qq.com>
+
+	* R/RcppDataFrame.R: (RcppDataFrame): Avoid double printing of return
+
 2016-12-02  Dirk Eddelbuettel  <edd@debian.org>
 
 	* src/DateExample.cpp (DateExample): Examples take more advantage

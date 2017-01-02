@@ -1,9 +1,12 @@
 \name{NEWS}
 \title{News for Package \pkg{RcppExamples}}
+\newcommand{\ghpr}{\href{https://github.com/eddelbuettel/rcppexamples/pull/#1}{##1}}
+\newcommand{\ghit}{\href{https://github.com/eddelbuettel/rcppexamples/issues/#1}{##1}}
 
 \section{Changes in RcppExamples version 0.1.9 (201x-yy-zz)}{
   \itemize{
     \item Extended DateExample to use more new Rcpp features
+    \item Do not print DataFrame result twice (Xikun Han in \ghpr{#3})
   }
 }
 
