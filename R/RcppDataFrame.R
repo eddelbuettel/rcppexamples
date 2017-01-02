@@ -32,7 +32,7 @@ RcppDataFrame <- function() {
     val <- DataFrameExample(D)
     
     cat("\nAfter call, original and new data frames:\n")
-    print(val)
+    # print(val)
 
     val
 }
