@@ -26,9 +26,9 @@ using namespace Rcpp;
 List DataFrameExample(const DataFrame & DF) {
 
     // access each column by name
-    IntegerVector a = DF["a"];
-    CharacterVector b = DF["b"];
-    DateVector c = DF["c"];
+    IntegerVector a = Rf_duplicate(DF["a"]);
+    CharacterVector b = Rf_duplicate(DF["b"]);
+    DateVector c = Rf_duplicate(DF["c"]);
     
     // do something
     a[2] = 42;
