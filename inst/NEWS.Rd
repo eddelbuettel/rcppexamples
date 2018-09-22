@@ -6,7 +6,12 @@
 \section{Changes in RcppExamples version 0.1.9 (201x-yy-zz)}{
   \itemize{
     \item Extended DateExample to use more new Rcpp features
-    \item Do not print DataFrame result twice (Xikun Han in \ghpr{#3})
+    \item Do not print DataFrame result twice (Xikun Han in \ghpr{3})
+    \item Missing parenthesis added in man page (Chris Muir in \ghpr{5})
+    \item Rewrote StringVectorExample slightly to not run afould the
+    -Wnoexcept-type warning for C++17-related name mangling changes
+    \item Updated NAMESPACE and RcppExports.cpp to add registration
+    \item Removed the no-longer-needed #define for new Datetime vectors
   }
 }
 
