@@ -2,30 +2,30 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 DataFrameExample <- function(DF) {
-    .Call('RcppExamples_DataFrameExample', PACKAGE = 'RcppExamples', DF)
+    .Call(`_RcppExamples_DataFrameExample`, DF)
 }
 
 DateExample <- function(dv, dtv) {
-    .Call('RcppExamples_DateExample', PACKAGE = 'RcppExamples', dv, dtv)
+    .Call(`_RcppExamples_DateExample`, dv, dtv)
 }
 
 ListExamples <- function(rparam) {
-    .Call('RcppExamples_ListExamples', PACKAGE = 'RcppExamples', rparam)
+    .Call(`_RcppExamples_ListExamples`, rparam)
 }
 
 MatrixExample <- function(orig) {
-    .Call('RcppExamples_MatrixExample', PACKAGE = 'RcppExamples', orig)
+    .Call(`_RcppExamples_MatrixExample`, orig)
 }
 
 NumericVectorExample <- function(orig) {
-    .Call('RcppExamples_NumericVectorExample', PACKAGE = 'RcppExamples', orig)
+    .Call(`_RcppExamples_NumericVectorExample`, orig)
 }
 
 RcppRNGs <- function(n) {
-    .Call('RcppExamples_RcppRNGs', PACKAGE = 'RcppExamples', n)
+    .Call(`_RcppExamples_RcppRNGs`, n)
 }
 
 StringVectorExample <- function(orig) {
-    .Call('RcppExamples_StringVectorExample', PACKAGE = 'RcppExamples', orig)
+    .Call(`_RcppExamples_StringVectorExample`, orig)
 }
 

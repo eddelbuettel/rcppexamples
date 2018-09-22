@@ -7,7 +7,7 @@ using namespace Rcpp;
 
 // DataFrameExample
 List DataFrameExample(const DataFrame& DF);
-RcppExport SEXP RcppExamples_DataFrameExample(SEXP DFSEXP) {
+RcppExport SEXP _RcppExamples_DataFrameExample(SEXP DFSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -18,7 +18,7 @@ END_RCPP
 }
 // DateExample
 List DateExample(DateVector& dv, DatetimeVector& dtv);
-RcppExport SEXP RcppExamples_DateExample(SEXP dvSEXP, SEXP dtvSEXP) {
+RcppExport SEXP _RcppExamples_DateExample(SEXP dvSEXP, SEXP dtvSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -30,7 +30,7 @@ END_RCPP
 }
 // ListExamples
 List ListExamples(const List& rparam);
-RcppExport SEXP RcppExamples_ListExamples(SEXP rparamSEXP) {
+RcppExport SEXP _RcppExamples_ListExamples(SEXP rparamSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -41,7 +41,7 @@ END_RCPP
 }
 // MatrixExample
 List MatrixExample(const NumericMatrix& orig);
-RcppExport SEXP RcppExamples_MatrixExample(SEXP origSEXP) {
+RcppExport SEXP _RcppExamples_MatrixExample(SEXP origSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -52,7 +52,7 @@ END_RCPP
 }
 // NumericVectorExample
 List NumericVectorExample(const NumericVector& orig);
-RcppExport SEXP RcppExamples_NumericVectorExample(SEXP origSEXP) {
+RcppExport SEXP _RcppExamples_NumericVectorExample(SEXP origSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -63,7 +63,7 @@ END_RCPP
 }
 // RcppRNGs
 DataFrame RcppRNGs(const int n);
-RcppExport SEXP RcppExamples_RcppRNGs(SEXP nSEXP) {
+RcppExport SEXP _RcppExamples_RcppRNGs(SEXP nSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -74,7 +74,7 @@ END_RCPP
 }
 // StringVectorExample
 List StringVectorExample(const StringVector& orig);
-RcppExport SEXP RcppExamples_StringVectorExample(SEXP origSEXP) {
+RcppExport SEXP _RcppExamples_StringVectorExample(SEXP origSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -82,4 +82,20 @@ BEGIN_RCPP
     rcpp_result_gen = Rcpp::wrap(StringVectorExample(orig));
     return rcpp_result_gen;
 END_RCPP
+}
+
+static const R_CallMethodDef CallEntries[] = {
+    {"_RcppExamples_DataFrameExample", (DL_FUNC) &_RcppExamples_DataFrameExample, 1},
+    {"_RcppExamples_DateExample", (DL_FUNC) &_RcppExamples_DateExample, 2},
+    {"_RcppExamples_ListExamples", (DL_FUNC) &_RcppExamples_ListExamples, 1},
+    {"_RcppExamples_MatrixExample", (DL_FUNC) &_RcppExamples_MatrixExample, 1},
+    {"_RcppExamples_NumericVectorExample", (DL_FUNC) &_RcppExamples_NumericVectorExample, 1},
+    {"_RcppExamples_RcppRNGs", (DL_FUNC) &_RcppExamples_RcppRNGs, 1},
+    {"_RcppExamples_StringVectorExample", (DL_FUNC) &_RcppExamples_StringVectorExample, 1},
+    {NULL, NULL, 0}
+};
+
+RcppExport void R_init_RcppExamples(DllInfo *dll) {
+    R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
+    R_useDynamicSymbols(dll, FALSE);
 }
