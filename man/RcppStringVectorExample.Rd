@@ -2,7 +2,7 @@
 \alias{RcppStringVectorExample}
 \title{Example of using Rcpp StringVector (aka CharacterVector) }
 \description{
-    The \code{StringVector} (aka \code{CharacterVector}
+    The \code{StringVector} (aka \code{CharacterVector})
     class represents character vectors. 
 }
 \details{
