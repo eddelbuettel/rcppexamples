@@ -16,15 +16,15 @@
 
   \preformatted{%
         int n;  	// length passed in from R
-    
+
         NumericVector rn = rnorm(n);
         NumericVector rt = rt(n, 1.0);
         NumericVector rp = rpois(n, 1.0);
 
         // create a new data frame to return drawns
-       return DataFrame::create(Named("rnorm") = xn,
-                                Named("rt")    = xt,
-                                Named("rpois") = xp);
+       return DataFrame::create(Named("rnorm") = rn,
+                                Named("rt")    = rt,
+                                Named("rpois") = rp);
   }
 
   As shown in the example section, provided the seed is reset, the exact
