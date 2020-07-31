@@ -2,6 +2,8 @@
 
 	* README.md: Add a 'last commit' badge
 
+	* .travis.yml: Update to 'bionic' and R 4.0.*
+
 2019-08-24  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Release 0.1.9
@@ -16,7 +18,7 @@
 2019-08-21  Dirk Eddelbuettel  <edd@debian.org>
 
 	* README.md: Added dependencies badge
-	
+
 2018-09-22  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): New minor release
