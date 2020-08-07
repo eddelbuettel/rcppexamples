@@ -1,3 +1,7 @@
+2020-08-06  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/DateExample.cpp (DateExample): Focus on new Date vector
+
 2020-07-31  Dirk Eddelbuettel  <edd@debian.org>
 
 	* README.md: Add a 'last commit' badge

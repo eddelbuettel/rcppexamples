@@ -2,7 +2,7 @@
 //
 // DateExample.cpp: RcppDate example
 //
-// Copyright (C) 2009 - 2016  Dirk Eddelbuettel and Romain Francois
+// Copyright (C) 2009 - 2020  Dirk Eddelbuettel and Romain Francois
 //
 // This file is part of RcppExamples.
 //
@@ -26,7 +26,6 @@ using namespace Rcpp;
 List DateExample(DateVector & dv, DatetimeVector & dtv) {
     // Support for this changed with Rcpp 0.12.8 but is still optional
     // Support for << redirection added added with 0.12.8.2 and later
-#if RCPP_NEW_DATE_DATETIME_VECTORS && (RCPP_DEV_VERSION >= RcppDevVersion(0,12,8,2))
     Rcout << "\nIn C++, seeing the following date values before/after adding a week:\n"
           << dv << std::endl;
     dv = dv + 7;		// shift a week
@@ -36,27 +35,7 @@ List DateExample(DateVector & dv, DatetimeVector & dtv) {
           << dtv << std::endl;
     dtv = dtv + 0.250;          // shift 250 millisec
     Rcout << dtv << std::endl;
-    
-#else    
-    Function formatDate("format.Date");
-    Function formatDatetime("format.POSIXct");
 
-    Rcout << "\nIn C++, seeing the following date values before/after adding a week:\n";
-    print(formatDate(dv));
-    for (int i=0; i<dv.size(); i++) {
-        dv[i] = dv[i] + 7;
-    }
-    print(formatDate(dv));
-
-    Rcout << "\nIn C++, seeing the following datetime values before/after adding a quarter second:\n";
-    print(formatDatetime(dtv));
-    // fallback
-    for (int i=0; i<dtv.size(); i++) {
-        dtv[i] = dtv[i] + 0.250;
-    }
-    print(formatDatetime(dtv));
-#endif
-    
     // Build result set to be returned as a list to R.
     return List::create(Named("date",   dv),
                         Named("datetime", dtv));
