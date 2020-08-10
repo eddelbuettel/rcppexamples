@@ -1,3 +1,7 @@
+2020-08-09  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Roll minor version
+
 2020-08-06  Dirk Eddelbuettel  <edd@debian.org>
 
 	* src/DateExample.cpp (DateExample): Focus on new Date vector
