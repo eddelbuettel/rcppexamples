@@ -1,6 +1,7 @@
 ## RcppExamples: Simple Examples for Rcpp
 
 [![Build Status](https://travis-ci.org/eddelbuettel/rcppexamples.svg)](https://travis-ci.org/eddelbuettel/rcppexamples) 
+[![CI](https://github.com/eddelbuettel/rcppexamples/workflows/ci/badge.svg)](https://github.com/eddelbuettel/rcppexamples/actions?query=workflow%3Aci)
 [![License](http://img.shields.io/badge/license-GPL%20%28%3E=%202%29-brightgreen.svg?style=flat)](https://www.gnu.org/licenses/gpl-2.0.html) 
 [![CRAN](https://www.r-pkg.org/badges/version/RcppExamples)](https://cran.r-project.org/package=RcppExamples) 
 [![Dependencies](https://tinyverse.netlify.com/badge/RcppExamples)](https://cran.r-project.org/package=RcppExamples) 
