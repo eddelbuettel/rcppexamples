@@ -1,7 +1,8 @@
 .gitignore
 .git
 .RS_Store
-.travis.yml
+^\.travis\.yml$
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^.*\.tar\.gz$
+^\.github
