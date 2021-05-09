@@ -13,6 +13,6 @@ Description: Examples for Seamless R and C++ integration
 Depends: R (>= 2.15.1)
 Imports: Rcpp
 LinkingTo: Rcpp
-URL: http://dirk.eddelbuettel.com/code/rcpp.examples.html
+URL: https://github.com/eddelbuettel/rcppexamples, https://dirk.eddelbuettel.com/code/rcpp.examples.html
 BugReports: https://github.com/eddelbuettel/rcppexamples/issues
 License: GPL (>= 2)
