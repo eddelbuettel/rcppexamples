@@ -27,7 +27,7 @@
   Francois have been extending Rcpp since 2009.
 }
 \seealso{
-  The \url{http://gallery.rcpp.org} site regroups a number of examples.
+  The \url{https://gallery.rcpp.org} site regroups a number of examples.
 }
 \keyword{package}
 

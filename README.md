@@ -1,7 +1,7 @@
 ## RcppExamples: Simple Examples for Rcpp
 
 [![CI](https://github.com/eddelbuettel/rcppexamples/workflows/ci/badge.svg)](https://github.com/eddelbuettel/rcppexamples/actions?query=workflow%3Aci)
-[![License](http://img.shields.io/badge/license-GPL%20%28%3E=%202%29-brightgreen.svg?style=flat)](https://www.gnu.org/licenses/gpl-2.0.html) 
+[![License](https://img.shields.io/badge/license-GPL%20%28%3E=%202%29-brightgreen.svg?style=flat)](https://www.gnu.org/licenses/gpl-2.0.html) 
 [![CRAN](https://www.r-pkg.org/badges/version/RcppExamples)](https://cran.r-project.org/package=RcppExamples) 
 [![Dependencies](https://tinyverse.netlify.com/badge/RcppExamples)](https://cran.r-project.org/package=RcppExamples) 
 [![Downloads](https://cranlogs.r-pkg.org/badges/RcppExamples?color=brightgreen)](https://www.r-pkg.org/pkg/RcppExamples)
@@ -9,9 +9,9 @@
 
 ### About
 
-This package regroups a couple of very simple examples for [Rcpp](http://dirk.eddelbuettel.com/code/rcpp.html).
+This package regroups a couple of very simple examples for [Rcpp](https://www.rcpp.org).
 
-A large number of more comprehensive examples are provided by the [Rcpp Gallery](http://gallery.rcpp.org).
+A large number of more comprehensive examples are provided by the [Rcpp Gallery](https://gallery.rcpp.org).
 
 ### Installation
 

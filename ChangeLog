@@ -1,3 +1,11 @@
+2022-07-24  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Roll minor version
+
+	* README.md: Use https:// URLs, point to www.rcpp.org
+	* man/RcppExamples-package.Rd: Use https:// URL
+	* DESCRIPTION: Idem
+
 2021-12-10  Dirk Eddelbuettel  <edd@debian.org>
 
 	* README.md: Remove unused continuous integration artifact and badge
