@@ -1,3 +1,12 @@
+2023-03-27  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/makeFactor.cpp (factor2char, char2factor): Add two simple to
+	and from factor converters
+	* man/factor2char.Rd: Documentation
+	* src/RcppExports.cpp: Updated
+	* R/RcppExports.R: Updated
+	* NAMESPACE: Idem
+
 2022-11-14  Dirk Eddelbuettel  <edd@debian.org>
 
 	* .github/workflows/ci.yaml (jobs): Update to actions/checkout@v3
@@ -301,4 +310,3 @@
 2010-02-16  Dirk Eddelbuettel  <edd@debian.org>
 
 	* New package, started from Rcpp 0.7.7
-

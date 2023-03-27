@@ -29,3 +29,29 @@ StringVectorExample <- function(orig) {
     .Call(`_RcppExamples_StringVectorExample`, orig)
 }
 
+#' Convert Index and String Vector into CharacterVector, and vice versa
+#'
+#' These two functions are an illustration of how \code{as.character} and
+#' \code{as.factor} may be reimplemented at the C++ level.
+#' @param iv A Integer Vector corresponding to numeric representation of the factor
+#' This vector is also expected to have an attribute \sQuote{levels} with the factor
+#' levels
+#' @return A Character Vector which at each position contains the level value of the
+#' corresponding index, or a Factor, depending on the function
+#' @examples
+#' f <- as.factor(c("red", "green", "blue", "red"))
+#' factor2char(f);
+factor2char <- function(iv) {
+    .Call(`_RcppExamples_factor2char`, iv)
+}
+
+#' @rdname factor2char
+#' @param sv A String Vector
+#' @examples
+#' f <- as.factor(c("red", "green", "blue", "red"))
+#' v <- factor2char(f);
+#' char2factor(v)
+char2factor <- function(sv) {
+    .Call(`_RcppExamples_char2factor`, sv)
+}
+

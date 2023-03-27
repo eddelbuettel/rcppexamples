@@ -6,8 +6,8 @@ export("RcppDataFrame",
        "RcppNumericVectorExample",
        "RcppMatrixExample",
        "RcppRNGsExample",
-       "RcppStringVectorExample"
-)
+       "RcppStringVectorExample",
+       "factor2char",
+       "char2factor")
 
 importFrom("Rcpp", "evalCpp")
-

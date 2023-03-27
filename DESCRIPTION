@@ -16,3 +16,4 @@ LinkingTo: Rcpp
 URL: https://github.com/eddelbuettel/rcppexamples, https://dirk.eddelbuettel.com/code/rcpp.examples.html
 BugReports: https://github.com/eddelbuettel/rcppexamples/issues
 License: GPL (>= 2)
+RoxygenNote: 6.0.1

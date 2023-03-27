@@ -5,6 +5,11 @@
 
 using namespace Rcpp;
 
+#ifdef RCPP_USE_GLOBAL_ROSTREAM
+Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
+Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
+#endif
+
 // DataFrameExample
 List DataFrameExample(const DataFrame& DF);
 RcppExport SEXP _RcppExamples_DataFrameExample(SEXP DFSEXP) {
@@ -83,6 +88,28 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// factor2char
+Rcpp::CharacterVector factor2char(Rcpp::IntegerVector iv);
+RcppExport SEXP _RcppExamples_factor2char(SEXP ivSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::IntegerVector >::type iv(ivSEXP);
+    rcpp_result_gen = Rcpp::wrap(factor2char(iv));
+    return rcpp_result_gen;
+END_RCPP
+}
+// char2factor
+Rcpp::IntegerVector char2factor(std::vector<std::string> sv);
+RcppExport SEXP _RcppExamples_char2factor(SEXP svSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::vector<std::string> >::type sv(svSEXP);
+    rcpp_result_gen = Rcpp::wrap(char2factor(sv));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_RcppExamples_DataFrameExample", (DL_FUNC) &_RcppExamples_DataFrameExample, 1},
@@ -92,6 +119,8 @@ static const R_CallMethodDef CallEntries[] = {
     {"_RcppExamples_NumericVectorExample", (DL_FUNC) &_RcppExamples_NumericVectorExample, 1},
     {"_RcppExamples_RcppRNGs", (DL_FUNC) &_RcppExamples_RcppRNGs, 1},
     {"_RcppExamples_StringVectorExample", (DL_FUNC) &_RcppExamples_StringVectorExample, 1},
+    {"_RcppExamples_factor2char", (DL_FUNC) &_RcppExamples_factor2char, 1},
+    {"_RcppExamples_char2factor", (DL_FUNC) &_RcppExamples_char2factor, 1},
     {NULL, NULL, 0}
 };
 
