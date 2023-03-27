@@ -7,6 +7,8 @@
 	* R/RcppExports.R: Updated
 	* NAMESPACE: Idem
 
+	* .editorconfig: Added
+
 2022-11-14  Dirk Eddelbuettel  <edd@debian.org>
 
 	* .github/workflows/ci.yaml (jobs): Update to actions/checkout@v3
