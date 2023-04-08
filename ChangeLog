@@ -1,3 +1,8 @@
+2023-04-08  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/Makevars: No longer set a compilation standard, small edits
+	* src/Makevars.win: Ditto
+
 2023-03-28  Dirk Eddelbuettel  <edd@debian.org>
 
 	* src/FactorExample.cpp: Renamed

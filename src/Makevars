@@ -2,8 +2,7 @@
 ##
 ## We could set particular variables here. Examples are
 ##    PKG_LIBS      for external libraries
-##    PKG_CXXFLAGS  for additional headers or defines
-##    CXX_STD       to select C++11 via 'CXX11'
+##    PKG_CPPFLAGS  for compilation preprocessor flags
+##    PKG_CXXFLAGS  for additional compiler flags
+##    CXX_STD       to select a compilation standard
 ## But for standard builds without external dependencies, nothing is needed
-
-CXX_STD = CXX11
