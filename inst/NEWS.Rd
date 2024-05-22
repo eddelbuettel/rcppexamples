@@ -7,6 +7,11 @@
   \itemize{
     \item Simplified \code{DateExample} by removing unused older API
     code
+    \item Added a new \code{FactorExample} with conversion to and from
+    character vectors
+    \item Updated and modernised continuous integrations multiple times
+    \item Updated a few documentation links
+    \item Updated build configuration
   }
 }
 \section{Changes in RcppExamples version 0.1.9 (2019-08-24)}{
@@ -26,7 +31,7 @@
     \item Updated \code{DateExample} to show vector addition available under
     Rcpp 0.12.8 when the (currently still phased in and optional) new
     Date(time) classes are used via the define in \code{src/Makevars{,.win}};
-    with fallback code for older versions 
+    with fallback code for older versions
     \item Other minor edits to \code{DESCRIPTION} and \code{README.md}
   }
 }
@@ -34,11 +39,11 @@
 \section{Changes in RcppExamples version 0.1.7 (2016-01-23)}{
   \itemize{
     \item All examples were updated to use \emph{Rcpp Attributes}
-    and (where possible) use \code{const &} interfaces.  
+    and (where possible) use \code{const &} interfaces.
     \item Updated \code{DESCRIPTION} for current \code{R CMD check}
     standards
     \item The \CRANpkg{Rcpp} package is now imported rather than depended
-    upon. 
+    upon.
     \item Added \code{README.md} as well as \code{.travis.yml}.
     \item Also updated and refreshed all manual pages and R files.
   }
