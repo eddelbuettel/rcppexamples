@@ -1,7 +1,7 @@
 
 // FactorExample.cpp: Factor example
 //
-// Copyright (C) 2023         Dirk Eddelbuettel
+// Copyright (C) 2023 - 2024  Dirk Eddelbuettel
 //
 // This file is part of RcppExamples.
 //
@@ -19,6 +19,7 @@
 // along with RcppExamples.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <Rcpp/Lightest>
+#include <cstdint>      		// for int32_t, needed on Windoze
 
 // Adapted with love from R's own src/coerce.c
 
