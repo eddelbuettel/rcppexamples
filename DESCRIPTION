@@ -2,8 +2,10 @@ Package: RcppExamples
 Title: Examples using 'Rcpp' to Interface R and C++
 Version: 0.1.9.3
 Date: 2024-05-22
-Author: Dirk Eddelbuettel and Romain Francois
-Maintainer: Dirk Eddelbuettel <edd@debian.org>
+Authors@R: c(person("Dirk", "Eddelbuettel", role = c("aut", "cre"), email = "edd@debian.org",
+                    comment = c(ORCID = "0000-0001-6419-907X")),
+             person("Romain", "Francois", role = "aut",
+                    comment = c(ORCID = "0000-0002-2444-4226")))
 Description: Examples for Seamless R and C++ integration
  The 'Rcpp' package contains a C++ library that facilitates the integration of
  R and C++ in various ways. This package provides some usage examples.
