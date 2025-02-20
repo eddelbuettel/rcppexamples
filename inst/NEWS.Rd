@@ -3,7 +3,7 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/rcppexamples/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/rcppexamples/issues/#1}{##1}}
 
-\section{Changes in RcppExamples version 0.1.10 (2020-xx-yy)}{
+\section{Changes in RcppExamples version 0.1.10 (2025-xx-yy)}{
   \itemize{
     \item Simplified \code{DateExample} by removing unused older API
     code
@@ -12,8 +12,11 @@
     \item Updated and modernised continuous integrations multiple times
     \item Updated a few documentation links
     \item Updated build configuration
+    \item Uodated README.md badges
+    \item No longer need to set a C++ compilation standard
   }
 }
+
 \section{Changes in RcppExamples version 0.1.9 (2019-08-24)}{
   \itemize{
     \item Extended \code{DateExample} to use more new Rcpp features

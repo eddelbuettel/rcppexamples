@@ -1,3 +1,12 @@
+2025-02-20  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Roll micro version and date
+
+	* .github/workflows/ci.yaml (jobs): Use r-ci with included bootstrap
+
+	* DESCRIPTION (Depends): Remove ancient versioned Depends on R
+	greater or equal than version 2.15.1 -- dated June 2012
+
 2024-09-13  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Authors@R): Added
