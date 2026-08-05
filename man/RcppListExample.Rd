@@ -2,7 +2,10 @@
 \alias{RcppListExample}
 \title{Examples of uses of List}
 \description{
-    \code{List} is an \code{Rcpp} class that can be used to manipulate R lists.  
+    \code{List} is an \code{Rcpp} class that can be used to manipulate R lists.
+}
+\usage{
+RcppListExample(params)
 }
 \arguments{
   \item{params}{A heterogeneous list specifying \code{method} (string),
