@@ -7,6 +7,8 @@
 	* man/RcppRNGsExample.Rd: Idem
 	* man/RcppStringVectorExample.Rd: Idem
 
+	* .github/workflows/ci.yaml: Switch to actions/checkout@v7
+
 2026-08-05  Dirk Eddelbuettel  <edd@debian.org>
 
 	* man/RcppListExample.Rd: Add \usage{} section
