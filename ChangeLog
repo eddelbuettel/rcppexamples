@@ -1,6 +1,6 @@
 2026-09-03  Dirk Eddelbuettel  <edd@debian.org>
 
-	* man/RcppDataFrame.Rd: Add \usage{} and \arguments{}
+	* man/RcppDataFrame.Rd: Add \usage{}, \arguments{}, \value{}
 	* man/RcppDateExample.Rd: Idem
 	* man/RcppMatrixExample.Rd: Idem
 	* man/RcppNumericVectorExample.Rd: Idem

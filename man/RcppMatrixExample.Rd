@@ -10,6 +10,9 @@ RcppMatrixExample(mat)
 \arguments{
   \item{mat}{A numeric matrix}
 }
+\value{
+  A \code{list} with the original and modified \code{matrix}
+}
 \details{
 
     The \code{C++} code presented in the \code{MatrixExample.cpp} file:

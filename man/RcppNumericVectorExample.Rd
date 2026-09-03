@@ -10,7 +10,9 @@ RcppNumericVectorExample(vec)
 \arguments{
   \item{vec}{A numeric vector}
 }
-
+\value{
+  A \code{list} with the original and modified \code{vector}
+}
 \details{
   \preformatted{%
     NumericVector orig ;                 // from R

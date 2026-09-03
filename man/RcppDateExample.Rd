@@ -12,6 +12,9 @@ RcppDateExample(dv, dtv)
   \item{dv}{A vector of \code{Date} objects}
   \item{dtv}{A vector of \code{Datetime} objects}
 }
+\value{
+  A \code{list} with a \code{Data} vector and a \code{Datetime} vector
+}
 \details{
 
     In the \code{C++} code for the \code{RcppDateExample.cpp} file:

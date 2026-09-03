@@ -11,6 +11,9 @@ RcppStringVectorExample(vec)
 \arguments{
   \item{vec}{A string vector}
 }
+\value{
+  A \code{list} with the original and modified \code{vector}
+}
 \details{
 
     The \code{C++} code presented in the \code{StringVectorExample.cpp} file:

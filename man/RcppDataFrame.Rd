@@ -11,6 +11,9 @@
 \usage{
 RcppDataFrame()
 }
+\value{
+  A \code{list} with the original and modified \code{data.frame}
+}
 \details{
   Usage of \code{Rcpp::DataFrame} is fully defined in
   the respective header file.

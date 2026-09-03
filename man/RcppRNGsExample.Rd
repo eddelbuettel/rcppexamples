@@ -13,6 +13,10 @@ RcppRNGsExample(n)
 \arguments{
   \item{n}{A numeric value for the number of draws}
 }
+\value{
+  A \code{data.frame} with \code{n} rows and three columns for random draws
+  from three different distributions: Normal, Student-t, and Poisson.
+}
 \details{
   The various header file, and the Rcpp sugar vignette, provide full
   documentation for Rcpp sugar.
