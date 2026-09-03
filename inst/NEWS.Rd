@@ -3,6 +3,13 @@
 \newcommand{\ghpr}{\href{https://github.com/eddelbuettel/rcppexamples/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/eddelbuettel/rcppexamples/issues/#1}{##1}}
 
+\section{Changes in RcppExamples version 0.1.11 (2026-09-03)}{
+  \itemize{
+    \item Add now-checked-for missing sections to manual pages
+    \item Updated continuous integrations two more times
+  }
+}
+
 \section{Changes in RcppExamples version 0.1.10 (2025-03-17)}{
   \itemize{
     \item Simplified \code{DateExample} by removing unused API code

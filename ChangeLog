@@ -1,5 +1,7 @@
 2026-09-03  Dirk Eddelbuettel  <edd@debian.org>
 
+	* DESCRIPTION (Version, Date): Release 0.1.11
+
 	* man/RcppDataFrame.Rd: Add \usage{}, \arguments{}, \value{}
 	* man/RcppDateExample.Rd: Idem
 	* man/RcppMatrixExample.Rd: Idem
