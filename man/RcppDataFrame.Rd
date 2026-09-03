@@ -3,10 +3,13 @@
 \title{Rcpp::DataFrame example for Rcpp}
 \description{
   A \code{DataFrame} can be passed C++ and can be instantiated as a
-  corresponding C++ object using the Rcpp API. 
+  corresponding C++ object using the Rcpp API.
 
   This example shows (in the corresponding C++ code) how to access,
   modify and create a data frame.
+}
+\usage{
+RcppDataFrame()
 }
 \details{
   Usage of \code{Rcpp::DataFrame} is fully defined in
@@ -21,14 +24,14 @@
       Rcpp::IntegerVector a = DF["a"];
       Rcpp::CharacterVector b = DF["b"];
       Rcpp::DateVector c = DF["c"];
-      
+
       // do something
       a[2] = 42;
       b[1] = "foo";
       c[0] = c[0] + 7;                      // move up a week
 
       // create a new data frame
-      Rcpp::DataFrame NDF = 
+      Rcpp::DataFrame NDF =
 	  Rcpp::DataFrame::create(Rcpp::Named("a")=a,
 				  Rcpp::Named("b")=b,
 				  Rcpp::Named("c")=c);

@@ -3,23 +3,29 @@
 \title{Example of using Rcpp StringVector (aka CharacterVector) }
 \description{
     The \code{StringVector} (aka \code{CharacterVector})
-    class represents character vectors. 
+    class represents character vectors.
+}
+\usage{
+RcppStringVectorExample(vec)
+}
+\arguments{
+  \item{vec}{A string vector}
 }
 \details{
 
-    The \code{C++} code presented in the \code{StringVectorExample.cpp} file: 
-    
+    The \code{C++} code presented in the \code{StringVectorExample.cpp} file:
+
     \preformatted{%
         #include <Rcpp.h>
         using namespace Rcpp ;
-        
+
         // [[Rcpp::export]]
         List StringVectorExample(const StringVector & orig) {
-            StringVector vec(orig.size());	
-        
-            std::transform(orig.begin(), orig.end(), vec.begin(), 
+            StringVector vec(orig.size());
+
+            std::transform(orig.begin(), orig.end(), vec.begin(),
         		   make_string_transformer(tolower));
-        
+
             return List::create(Named("result")   = vec,
                                 Named("original") = orig);
         }

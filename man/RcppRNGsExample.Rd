@@ -7,6 +7,12 @@
   This example shows (in the corresponding C++ code) how to draw from
   three different distributions and returns a data frame.
 }
+\usage{
+RcppRNGsExample(n)
+}
+\arguments{
+  \item{n}{A numeric value for the number of draws}
+}
 \details{
   The various header file, and the Rcpp sugar vignette, provide full
   documentation for Rcpp sugar.

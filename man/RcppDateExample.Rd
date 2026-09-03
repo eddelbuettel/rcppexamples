@@ -2,19 +2,26 @@
 \alias{RcppDateExample}
 \title{C++ classes for interfacing date and datetime R objects}
 \description{
-    Rcpp has the classes \code{Rcpp::Date}, \code{Rcpp::Datetime}, 
+    Rcpp has the classes \code{Rcpp::Date}, \code{Rcpp::Datetime},
     \code{Rcpp::DateVector} and \code{Rcpp::DatetimeVector}.
+}
+\usage{
+RcppDateExample(dv, dtv)
+}
+\arguments{
+  \item{dv}{A vector of \code{Date} objects}
+  \item{dtv}{A vector of \code{Datetime} objects}
 }
 \details{
 
-    In the \code{C++} code for the \code{RcppDateExample.cpp} file: 
-    
+    In the \code{C++} code for the \code{RcppDateExample.cpp} file:
+
     \preformatted{%
         // [[Rcpp::export]]
         List DateExample(DateVector & dv, DatetimeVector & dtv) {
             Function formatDate("format.Date");
             Function formatDatetime("format.POSIXct");
-            
+
             Rprintf("\nIn C++, seeing the following date value\n");
             for (int i=0; i<dv.size(); i++) {
                 Rcout << as<std::string>(formatDate(wrap(dv[i]))) << std::endl;
@@ -25,12 +32,12 @@
                 Rcout << as<std::string>(formatDatetime(wrap(dtv[i]))) << std::endl;
                 dtv[i] = dtv[i] + 0.250;    // shift 250 millisec
             }
-            
+
            // Build result set to be returned as a list to R.
            return List::create(Named("date",   dv),
                                Named("datetime", dtv));
         }
-    
+
     }
 }
 \references{
@@ -55,4 +62,3 @@ result
 }
 \keyword{programming}
 \keyword{interface}
-
